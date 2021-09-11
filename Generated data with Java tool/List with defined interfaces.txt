@@ -1,0 +1,64 @@
+OrganizationBlock: OB1 (Main) (FBD)
+Inputs: [Initial_Call (BOOL), Remanence (BOOL)]
+FunctionBlock: FB2 (Valve Liquid 1) (FBD)
+Inputs: [en (BOOL)]
+Outputs: [eno (BOOL)]
+Statics: [VlvLiq1 (UDT of fbValve_Solenoid)]
+FunctionBlock: FB3 (Valve Liquid 2) (FBD)
+Inputs: [en (BOOL)]
+Outputs: [eno (BOOL)]
+Statics: [VlvLiq2 (UDT of fbValve_Solenoid)]
+FunctionBlock: FB4 (Valve Drain) (FBD)
+Inputs: [en (BOOL)]
+Outputs: [eno (BOOL)]
+Statics: [VlvDrn (UDT of fbValve_Solenoid)]
+FunctionBlock: FB5 (Program Logic) (FBD)
+Inputs: [en (BOOL)]
+Outputs: [eno (BOOL)]
+Statics: [StepSeq (UDT of fbStepSequencer), CurrentStep (INT), NextStep (INT), StepDone (BOOL)]
+FunctionBlock: FB6 (TestExecOrd2) (FBD)
+Inputs: [en (BOOL)]
+Outputs: [eno (BOOL)]
+FunctionBlock: FB110 (fbValve_Solenoid) (FBD)
+Inputs: [tInTimeout (TIME), iInMode (INT), bInEstop (BOOL), bInSignalHome (BOOL), bInSignalWork (BOOL), bInEnable (BOOL), bInCommandWork (BOOL), bInResetError (BOOL), bInSimulate (BOOL), en (BOOL)]
+Outputs: [bOutCommandHome (BOOL), bOutCommandWork (BOOL), bOutActiveHome (BOOL), bOutActiveWork (BOOL), bOutAuto (BOOL), bOutError (BOOL), ERROR_Valve (UDT of udtError_Valve), eno (BOOL)]
+InOuts: [HMI_ValveControl (UDT of udtHMI_ValveControl)]
+Statics: [ErrorScroller (UDT of fbErrorScroller), TON_TimeOut (TIMER), iLastMode (INT), bNewMode (BOOL), bEnableHome (BOOL), bEnableWork (BOOL), bAutoMode (BOOL), bManualMode (BOOL), bReset (BOOL), bTON_TimeOut (BOOL), bPB_Home (BOOL), bPB_Work (BOOL), bPB_ResetError (BOOL)]
+Temps: [tTimeoutElapsed (TIME), bTemp (BOOL)]
+FunctionBlock: FB185 (fbStepSequencer) (SCL)
+Inputs: [iInStep (INT), iInNextStep (INT), bInStepDone (BOOL), tInStepDelay (TIME), bInStepMode (BOOL), bInStepAdvance (BOOL), bInit (BOOL), iInitStep (INT), en (BOOL)]
+Outputs: [bOutEnterEvent (BOOL), bOutExitEvent (BOOL), bOutPaused (BOOL), iOutCurrentStep (INT), eno (BOOL)]
+Statics: [TON_StepDelay (TIMER), iCurrentStep (INT), bAlreadyInThisStep (BOOL)]
+Temps: [bNoStepDelay (BOOL)]
+FunctionBlock: FB330 (fbErrorScroller) (FBD)
+Inputs: [bInError01 (BOOL), bInError02 (BOOL), bInError03 (BOOL), bInError04 (BOOL), bInError05 (BOOL), bInError06 (BOOL), bInError07 (BOOL), bInError08 (BOOL), bInError09 (BOOL), bInError10 (BOOL), bInError11 (BOOL), bInError12 (BOOL), bInError13 (BOOL), bInError14 (BOOL), bInError15 (BOOL), bInError16 (BOOL), bInError17 (BOOL), bInError18 (BOOL), bInError19 (BOOL), bInError20 (BOOL), bInError21 (BOOL), bInError22 (BOOL), bInError23 (BOOL), bInError24 (BOOL), bInError25 (BOOL), bInError26 (BOOL), bInError27 (BOOL), bInError28 (BOOL), bInError29 (BOOL), bInError30 (BOOL), en (BOOL)]
+Outputs: [bOutErrorExists (BOOL), iOutScrollingErrorNumber (INT), eno (BOOL)]
+Statics: [TON_ErrorDelay (TIMER), abErrors (UDT of Array[#ciIndexLow..#ciIndexHigh] of Bool), iNextScrollNum (INT), iErrorsScrollNum (INT), bScrolling (BOOL), bTON_ErrorDelay (BOOL)]
+Temps: [bErrorExists (BOOL)]
+Constants: [ciNoErrrors (INT), ciIndexLow (INT), ciIndexHigh (INT)]
+Function: FC2 (TestExecOrd) (FBD)
+Inputs: [en (BOOL)]
+Outputs: [Ret_Val (VOID), eno (BOOL)]
+Function: FC185 (fcStepChooser) (SCL)
+Inputs: [bCondition (BOOL), iTrueStep (INT), iFalseStep (INT), en (BOOL)]
+Outputs: [Ret_Val (INT), eno (BOOL)]
+Temps: [iResult (INT)]
+Function: FC329 (fcHMIBitEnable) (FBD)
+Inputs: [bInToggle (BOOL), bInLatch (BOOL), bInEnable (BOOL), en (BOOL)]
+Outputs: [bOutEnable (BOOL), Ret_Val (VOID), eno (BOOL)]
+InOuts: [bInOutHMI (BOOL), bInOutPLC (BOOL)]
+Function: FC333 (fcSetHMIStatusSimulation) (FBD)
+Inputs: [bInEstop (BOOL), bInError (BOOL), bInForwardWork (BOOL), bInReverseHome (BOOL), bInOnForwardWork (BOOL), bInOnReverseHome (BOOL), bInSimulate (BOOL), en (BOOL)]
+Outputs: [iOutStatus (INT), Ret_Val (VOID), eno (BOOL)]
+GlobalDB: DB3 (DB_HMI)
+Statics: [VlvLiq1 (UDT of udtHMI_ValveControl), VlvLiq2 (UDT of udtHMI_ValveControl), VlvDrn (UDT of udtHMI_ValveControl)]
+GlobalDB: DB4 (DB_ProgramLogic)
+Statics: [VlvLiq1_Open (BOOL), VlvLiq2_Open (BOOL), VlvDrn_Open (BOOL)]
+InstanceDB: iDB2 (Program Logic_DB)
+Statics: [StepSeq (UDT of fbStepSequencer), CurrentStep (INT), NextStep (INT), StepDone (BOOL)]
+InstanceDB: iDB7 (Valve Drain_DB)
+Statics: [VlvDrn (UDT of fbValve_Solenoid)]
+InstanceDB: iDB8 (Valve Liquid 1_DB)
+Statics: [VlvLiq1 (UDT of fbValve_Solenoid)]
+InstanceDB: iDB9 (Valve Liquid 2_DB)
+Statics: [VlvLiq2 (UDT of fbValve_Solenoid)]

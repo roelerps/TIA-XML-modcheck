@@ -1,0 +1,129 @@
+MODULE fc329(bInToggle, bInLatch, bInEnable)
+VAR
+
+loc : {start, nw1, nw2, nw3, nw4, nw5, nw6, nw7 , end};
+
+output_bOutEnable : boolean;
+
+inout_bInOutHMI : boolean;
+inout_bInOutPLC : boolean;
+
+
+ASSIGN
+
+init(loc) := start;
+
+init(output_bOutEnable) := FALSE;
+
+init(inout_bInOutHMI) := FALSE;
+init(inout_bInOutPLC) := FALSE;
+
+next(loc) :=
+	case
+		(loc = start) : nw1;
+		(loc = nw1) : nw2;
+		(loc = nw2) : nw3;
+		(loc = nw3) : nw4;
+		(loc = nw4) : nw5;
+		(loc = nw5) : nw6;
+		(loc = nw6) : nw7;
+		(loc = nw7) : end;
+		(loc = end) : start;
+	esac;
+	
+-- network 1
+next(inout_bInOutPLC) :=
+	case	
+		(loc = nw1) & (!bInToggle & !bInLatch): FALSE;
+		(loc = nw2) & (bInEnable & inout_bInOutHMI & bInToggle & inout_bInOutPLC): FALSE;
+		(loc = nw3) & (bInEnable & inout_bInOutHMI & bInToggle & !inout_bInOutPLC): TRUE;
+		(loc = nw4) & (bInEnable & inout_bInOutHMI & !bInToggle): TRUE;
+		(loc = end) : {FALSE, TRUE};
+		TRUE : inout_bInOutPLC;
+	esac;
+	
+-- network 2
+next(inout_bInOutHMI) :=
+	case
+		(loc = nw2) & (bInEnable & inout_bInOutHMI & bInToggle & inout_bInOutPLC): FALSE;
+		(loc = nw6) : FALSE;
+		(loc = end) : {FALSE, TRUE};
+		TRUE : inout_bInOutHMI;
+	esac;
+	
+-- network 5
+next(output_bOutEnable) :=
+	case
+		(loc = nw5) : bInEnable;
+		TRUE : output_bOutEnable;
+	esac;
+
+
+
+
+MODULE main
+VAR
+bInToggle : boolean;
+bInLatch : boolean;
+bInEnable : boolean;
+Test_FC329 : fc329(bInToggle, bInLatch, bInEnable);
+
+ASSIGN
+init(bInToggle) := FALSE;
+init(bInLatch) := FALSE;
+init(bInEnable) := FALSE;
+
+
+next(bInToggle) := 
+	case
+		(Test_FC329.loc = end) : {FALSE, TRUE};
+		TRUE : bInToggle;
+	esac;
+	
+next(bInLatch) := 
+	case
+		(Test_FC329.loc = end) : {FALSE, TRUE};
+		TRUE : bInLatch;
+	esac;
+
+next(bInEnable) := 
+	case
+		(Test_FC329.loc = end) : {FALSE, TRUE};
+		TRUE : bInEnable;
+	esac;
+
+
+-- Basic reachability
+SPEC AG AF (Test_FC329.loc = end)
+LTLSPEC G F (Test_FC329.loc = end)
+SPEC AF (Test_FC329.loc = end)
+LTLSPEC F (Test_FC329.loc = end)
+SPEC AG (Test_FC329.loc = end -> AX (Test_FC329.loc = start))
+LTLSPEC G (Test_FC329.loc = end -> X (Test_FC329.loc = start))
+
+-- Basic liveness
+SPEC EF (Test_FC329.loc = end & Test_FC329.output_bOutEnable)
+LTLSPEC F ((Test_FC329.loc = end & bInEnable) -> (Test_FC329.output_bOutEnable))
+SPEC EF (Test_FC329.loc = end & !Test_FC329.output_bOutEnable)
+LTLSPEC F (Test_FC329.loc = end & !Test_FC329.output_bOutEnable)
+--SPEC EF (Test_FC329.loc = end & Test_FC329.inout_bInOutHMI)
+--LTLSPEC F (Test_FC329.loc = end & Test_FC329.inout_bInOutHMI)
+SPEC EF (Test_FC329.loc = end & !Test_FC329.inout_bInOutHMI)
+LTLSPEC F (Test_FC329.loc = end & !Test_FC329.inout_bInOutHMI)
+SPEC EF (Test_FC329.loc = end & Test_FC329.inout_bInOutPLC)
+LTLSPEC F ((Test_FC329.loc = end & bInEnable) -> (Test_FC329.inout_bInOutPLC))
+SPEC EF (Test_FC329.loc = end & !Test_FC329.inout_bInOutPLC)
+LTLSPEC F (Test_FC329.loc = end & !Test_FC329.inout_bInOutPLC)
+
+-- Functionality
+SPEC AG ((Test_FC329.loc = end & bInEnable) -> (Test_FC329.output_bOutEnable))
+LTLSPEC G ((Test_FC329.loc = end & bInEnable) -> (Test_FC329.output_bOutEnable))
+SPEC AG ((Test_FC329.loc = end & bInEnable & bInToggle & Test_FC329.inout_bInOutHMI & !Test_FC329.inout_bInOutPLC) -> Test_FC329.inout_bInOutPLC)
+LTLSPEC G ((Test_FC329.loc = end & bInEnable & bInToggle & Test_FC329.inout_bInOutHMI & !Test_FC329.inout_bInOutPLC) -> Test_FC329.inout_bInOutPLC)
+SPEC AG ((Test_FC329.loc = end & bInEnable & !bInToggle & Test_FC329.inout_bInOutHMI) -> Test_FC329.inout_bInOutPLC)
+LTLSPEC G ((Test_FC329.loc = end & bInEnable & !bInToggle & Test_FC329.inout_bInOutHMI) -> Test_FC329.inout_bInOutPLC)
+
+
+
+
+

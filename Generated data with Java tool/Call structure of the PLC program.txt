@@ -1,0 +1,36 @@
+Main OB1
+|--Valve Drain FB4 (Valve Drain_DB DB7)
+|--|--fbValve_Solenoid FB110 (VlvDrn)
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--|--fcSetHMIStatusSimulation FC333
+|--Valve Liquid 1 FB2 (Valve Liquid 1_DB DB8)
+|--|--fbValve_Solenoid FB110 (VlvLiq1)
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--|--fcSetHMIStatusSimulation FC333
+|--Valve Liquid 2 FB3 (Valve Liquid 2_DB DB9)
+|--|--fbValve_Solenoid FB110 (VlvLiq2)
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fcHMIBitEnable FC329
+|--|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--|--fcSetHMIStatusSimulation FC333
+|--Program Logic FB5 (Program Logic_DB DB2)
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fbStepSequencer FB185 (StepSeq)

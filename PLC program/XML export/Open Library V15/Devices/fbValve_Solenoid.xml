@@ -1,0 +1,3410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-08-10T11:53:40.4139441Z</Created>
+    <ExportSetting>WithDefaults, WithReadOnly</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Teamcenter Gateway</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Unified SCADA Engineering System</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <CodeModifiedDate ReadOnly="true">2021-08-10T11:52:58.0273326Z</CodeModifiedDate>
+      <CompileDate ReadOnly="true">2021-08-10T11:53:23.0999729Z</CompileDate>
+      <CreationDate ReadOnly="true">2020-02-26T07:34:28.9567791Z</CreationDate>
+      <DownloadWithoutReinit ReadOnly="true">false</DownloadWithoutReinit>
+      <HandleErrorsWithinBlock ReadOnly="true">false</HandleErrorsWithinBlock>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Input">
+    <Member Name="tInTimeout" Datatype="Time" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Timeout time for an actuator's feedback to activate before giving a fault</MultiLanguageText></Comment></Member>
+    <Member Name="iInMode" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Mode Selection</MultiLanguageText></Comment></Member>
+    <Member Name="bInEstop" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Estop</MultiLanguageText></Comment></Member>
+    <Member Name="bInSignalHome" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Home position feedback</MultiLanguageText></Comment></Member>
+    <Member Name="bInSignalWork" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Work position feedback</MultiLanguageText></Comment></Member>
+    <Member Name="bInEnable" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Home and Work Enabled</MultiLanguageText></Comment></Member>
+    <Member Name="bInCommandWork" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Move to work position in automatic mode</MultiLanguageText></Comment></Member>
+    <Member Name="bInResetError" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Reset Error</MultiLanguageText></Comment></Member>
+    <Member Name="bInSimulate" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><StringAttribute Name="S7_HiddenAssignment" SystemDefined="true">HideIfNoParamAssigned</StringAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Activate device simulation</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="bOutCommandHome" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><StringAttribute Name="S7_HiddenAssignment" SystemDefined="true">HideIfNoParamAssigned</StringAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Home position command</MultiLanguageText></Comment></Member>
+    <Member Name="bOutCommandWork" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Work position command</MultiLanguageText></Comment></Member>
+    <Member Name="bOutActiveHome" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><StringAttribute Name="S7_HiddenAssignment" SystemDefined="true">HideIfNoParamAssigned</StringAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Valve is in home position</MultiLanguageText></Comment></Member>
+    <Member Name="bOutActiveWork" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><StringAttribute Name="S7_HiddenAssignment" SystemDefined="true">HideIfNoParamAssigned</StringAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Valve is in work position</MultiLanguageText></Comment></Member>
+    <Member Name="bOutAuto" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><StringAttribute Name="S7_HiddenAssignment" SystemDefined="true">HideIfNoParamAssigned</StringAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Block in auto mode</MultiLanguageText></Comment></Member>
+    <Member Name="bOutError" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Error exists</MultiLanguageText></Comment></Member>
+    <Member Name="ERROR_Valve" Datatype="&quot;udtError_Valve&quot;" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Valve error structure</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="NoHomeFeedback" Datatype="Bool" /><Member Name="NoWorkFeedback" Datatype="Bool" /><Member Name="HomeFeedbackStillActive" Datatype="Bool" /><Member Name="WorkFeedbackStillActive" Datatype="Bool" /></Section></Sections></Member>
+  </Section>
+  <Section Name="InOut">
+    <Member Name="HMI_ValveControl" Datatype="&quot;udtHMI_ValveControl&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">HMI valve control</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="iMode" Datatype="Int" /><Member Name="iErrorCode" Datatype="Int" /><Member Name="iStatus" Datatype="Int" /><Member Name="bPB_ResetError" Datatype="Bool" /><Member Name="bPB_Home" Datatype="Bool" /><Member Name="bPB_Work" Datatype="Bool" /><Member Name="bPBEN_ResetError" Datatype="Bool" /><Member Name="bPBEN_Home" Datatype="Bool" /><Member Name="bPBEN_Work" Datatype="Bool" /><Member Name="bHomeOn" Datatype="Bool" /><Member Name="bWorkOn" Datatype="Bool" /><Member Name="bSignalHome" Datatype="Bool" /><Member Name="bSignalWork" Datatype="Bool" /><Member Name="bError" Datatype="Bool" /><Member Name="bInterlock" Datatype="Bool" /></Section></Sections></Member>
+  </Section>
+  <Section Name="Static">
+    <Member Name="ErrorScroller" Datatype="&quot;fbErrorScroller&quot;" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Sub-block to handle error scroller</MultiLanguageText></Comment><Sections><Section Name="Input"><Member Name="bInError01" Datatype="Bool" /><Member Name="bInError02" Datatype="Bool" /><Member Name="bInError03" Datatype="Bool" /><Member Name="bInError04" Datatype="Bool" /><Member Name="bInError05" Datatype="Bool" /><Member Name="bInError06" Datatype="Bool" /><Member Name="bInError07" Datatype="Bool" /><Member Name="bInError08" Datatype="Bool" /><Member Name="bInError09" Datatype="Bool" /><Member Name="bInError10" Datatype="Bool" /><Member Name="bInError11" Datatype="Bool" /><Member Name="bInError12" Datatype="Bool" /><Member Name="bInError13" Datatype="Bool" /><Member Name="bInError14" Datatype="Bool" /><Member Name="bInError15" Datatype="Bool" /><Member Name="bInError16" Datatype="Bool" /><Member Name="bInError17" Datatype="Bool" /><Member Name="bInError18" Datatype="Bool" /><Member Name="bInError19" Datatype="Bool" /><Member Name="bInError20" Datatype="Bool" /><Member Name="bInError21" Datatype="Bool" /><Member Name="bInError22" Datatype="Bool" /><Member Name="bInError23" Datatype="Bool" /><Member Name="bInError24" Datatype="Bool" /><Member Name="bInError25" Datatype="Bool" /><Member Name="bInError26" Datatype="Bool" /><Member Name="bInError27" Datatype="Bool" /><Member Name="bInError28" Datatype="Bool" /><Member Name="bInError29" Datatype="Bool" /><Member Name="bInError30" Datatype="Bool" /></Section><Section Name="Output"><Member Name="bOutErrorExists" Datatype="Bool" /><Member Name="iOutScrollingErrorNumber" Datatype="Int" /></Section><Section Name="InOut" /><Section Name="Static"><Member Name="TON_ErrorDelay" Datatype="TON_TIME" Version="1.0"><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member><Member Name="abErrors" Datatype="Array[1..30] of Bool" /><Member Name="iNextScrollNum" Datatype="Int" /><Member Name="iErrorsScrollNum" Datatype="Int" /><Member Name="bScrolling" Datatype="Bool" /><Member Name="bTON_ErrorDelay" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="TON_TimeOut" Datatype="TON_TIME" Version="1.0" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Timer for Error Timeout</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="iLastMode" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Last mode code</MultiLanguageText></Comment></Member>
+    <Member Name="bNewMode" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">New mode selected</MultiLanguageText></Comment></Member>
+    <Member Name="bEnableHome" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Home position enabled</MultiLanguageText></Comment></Member>
+    <Member Name="bEnableWork" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Work position enabled</MultiLanguageText></Comment></Member>
+    <Member Name="bAutoMode" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Auto Mode is active</MultiLanguageText></Comment></Member>
+    <Member Name="bManualMode" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Manual Mode is active</MultiLanguageText></Comment></Member>
+    <Member Name="bReset" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="bTON_TimeOut" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="bPB_Home" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="bPB_Work" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="bPB_ResetError" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Temp">
+    <Member Name="tTimeoutElapsed" Datatype="Time"><AttributeList><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Elapsed time for TON_Timeout</MultiLanguageText></Comment></Member>
+    <Member Name="bTemp" Datatype="Bool"><AttributeList><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Constant" />
+</Sections></Interface>
+      <InterfaceModifiedDate ReadOnly="true">2019-07-17T06:42:37.7805928Z</InterfaceModifiedDate>
+      <IsConsistent ReadOnly="true">true</IsConsistent>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <IsKnowHowProtected ReadOnly="true">false</IsKnowHowProtected>
+      <ISMultiInstanceCapable ReadOnly="true">true</ISMultiInstanceCapable>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtected ReadOnly="true">false</IsWriteProtected>
+      <LibraryConformanceStatus ReadOnly="true">Warning: The object contains access to global PLC constants.
+</LibraryConformanceStatus>
+      <LibraryType ReadOnly="true">fbValve_Solenoid V 3.0.6 in test</LibraryType>
+      <LibraryTypeVersionGuid ReadOnly="true">0a9fd967-cd2b-46e1-afc3-82055bb762c7</LibraryTypeVersionGuid>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <ModifiedDate ReadOnly="true">2021-08-10T11:52:58.0273326Z</ModifiedDate>
+      <Name>fbValve_Solenoid</Name>
+      <Number>110</Number>
+      <ParameterModified ReadOnly="true">2019-07-17T06:42:37.7805928Z</ParameterModified>
+      <PLCSimAdvancedSupport ReadOnly="true">true</PLCSimAdvancedSupport>
+      <ProgrammingLanguage>FBD</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+      <StructureModified ReadOnly="true">2019-07-17T06:42:37.7805928Z</StructureModified>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>--------------------------------------------------------- Inputs ------------------------------------------------------------------</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LiteralConstant" UId="21">
+      <Constant>
+        <ConstantType>Bool</ConstantType>
+        <ConstantValue>false</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>Bool</ConstantType>
+        <ConstantValue>false</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPB_Home" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="bPB_Home" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPBEN_Home" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="27">
+      <Constant>
+        <ConstantType>Bool</ConstantType>
+        <ConstantValue>false</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="28">
+      <Constant>
+        <ConstantType>Bool</ConstantType>
+        <ConstantValue>false</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="30">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPB_Work" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="31">
+      <Symbol>
+        <Component Name="bPB_Work" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="32">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPBEN_Work" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="33">
+      <Constant>
+        <ConstantType>Bool</ConstantType>
+        <ConstantValue>false</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LiteralConstant" UId="34">
+      <Constant>
+        <ConstantType>Bool</ConstantType>
+        <ConstantValue>false</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="35">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="36">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPB_ResetError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="37">
+      <Symbol>
+        <Component Name="bPB_ResetError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="38">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPBEN_ResetError" />
+      </Symbol>
+    </Access>
+    <Call UId="39">
+      <CallInfo Name="fcHMIBitEnable" BlockType="FC">
+        <IntegerAttribute Name="BlockNumber" Informative="true">329</IntegerAttribute>
+        <DateAttribute Name="ParameterModifiedTS" Informative="true">2017-10-26T17:33:11</DateAttribute>
+        <Parameter Name="bInToggle" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInLatch" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInEnable" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bOutEnable" Section="Output" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOutHMI" Section="InOut" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOutPLC" Section="InOut" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+      </CallInfo>
+    </Call>
+    <Call UId="40">
+      <CallInfo Name="fcHMIBitEnable" BlockType="FC">
+        <IntegerAttribute Name="BlockNumber" Informative="true">329</IntegerAttribute>
+        <DateAttribute Name="ParameterModifiedTS" Informative="true">2017-10-26T17:33:11</DateAttribute>
+        <Parameter Name="bInToggle" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInLatch" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInEnable" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bOutEnable" Section="Output" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOutHMI" Section="InOut" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOutPLC" Section="InOut" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+      </CallInfo>
+    </Call>
+    <Call UId="41">
+      <CallInfo Name="fcHMIBitEnable" BlockType="FC">
+        <IntegerAttribute Name="BlockNumber" Informative="true">329</IntegerAttribute>
+        <DateAttribute Name="ParameterModifiedTS" Informative="true">2017-10-26T17:33:11</DateAttribute>
+        <Parameter Name="bInToggle" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInLatch" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInEnable" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bOutEnable" Section="Output" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOutHMI" Section="InOut" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOutPLC" Section="InOut" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="43">
+      <OpenCon UId="42" />
+      <NameCon UId="39" Name="en" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="21" />
+      <NameCon UId="39" Name="bInToggle" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="22" />
+      <NameCon UId="39" Name="bInLatch" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="23" />
+      <NameCon UId="39" Name="bInEnable" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="24" />
+      <NameCon UId="39" Name="bInOutHMI" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="25" />
+      <NameCon UId="39" Name="bInOutPLC" />
+    </Wire>
+    <Wire UId="49">
+      <NameCon UId="39" Name="bOutEnable" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="39" Name="eno" />
+      <NameCon UId="40" Name="en" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="27" />
+      <NameCon UId="40" Name="bInToggle" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="28" />
+      <NameCon UId="40" Name="bInLatch" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="29" />
+      <NameCon UId="40" Name="bInEnable" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="30" />
+      <NameCon UId="40" Name="bInOutHMI" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="31" />
+      <NameCon UId="40" Name="bInOutPLC" />
+    </Wire>
+    <Wire UId="56">
+      <NameCon UId="40" Name="bOutEnable" />
+      <IdentCon UId="32" />
+    </Wire>
+    <Wire UId="57">
+      <NameCon UId="40" Name="eno" />
+      <NameCon UId="41" Name="en" />
+    </Wire>
+    <Wire UId="58">
+      <IdentCon UId="33" />
+      <NameCon UId="41" Name="bInToggle" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="34" />
+      <NameCon UId="41" Name="bInLatch" />
+    </Wire>
+    <Wire UId="60">
+      <IdentCon UId="35" />
+      <NameCon UId="41" Name="bInEnable" />
+    </Wire>
+    <Wire UId="61">
+      <IdentCon UId="36" />
+      <NameCon UId="41" Name="bInOutHMI" />
+    </Wire>
+    <Wire UId="62">
+      <IdentCon UId="37" />
+      <NameCon UId="41" Name="bInOutPLC" />
+    </Wire>
+    <Wire UId="63">
+      <NameCon UId="41" Name="bOutEnable" />
+      <IdentCon UId="38" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Read HMI input buttons</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="D" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="A" UId="27">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="29" />
+  </Parts>
+  <Wires>
+    <Wire UId="30">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in1" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="in1" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="10" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Update the signal home bit</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="12" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="A" UId="27">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="O" UId="28">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="29" />
+  </Parts>
+  <Wires>
+    <Wire UId="30">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in1" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="23" />
+      <NameCon UId="27" Name="in1" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="in2" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in2" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="15" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="16" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Update the signal work bit</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="17" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="18" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="19" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1A" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="1B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>--------------------------------------------------- Control Logic ------------------------------------------------------------</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="1C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInResetError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bPB_ResetError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPBEN_ResetError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="bReset" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="NoHomeFeedback" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="NoWorkFeedback" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="HomeFeedbackStillActive" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="WorkFeedbackStillActive" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="A" UId="30">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="31" />
+    <Part Name="RCoil" UId="32" />
+    <Part Name="RCoil" UId="33" />
+    <Part Name="RCoil" UId="34" />
+    <Part Name="RCoil" UId="35" />
+  </Parts>
+  <Wires>
+    <Wire UId="36">
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="in1" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="in1" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="in2" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="in" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="operand" />
+    </Wire>
+    <Wire UId="42">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="28" />
+      <NameCon UId="35" Name="operand" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in" />
+      <NameCon UId="33" Name="in" />
+      <NameCon UId="34" Name="in" />
+      <NameCon UId="35" Name="in" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="1E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="1F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="20" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Clear all errors</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="iInMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalConstant" UId="22">
+      <Constant Name="Modes.Independent">
+        <ConstantType Informative="true">Int</ConstantType>
+        <ConstantValue Informative="true">10</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Dec_signed</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="iInMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iMode" />
+      </Symbol>
+    </Access>
+    <Part Name="Ne" UId="25">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Move" UId="26" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="in1" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="in2" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="en" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="26" Name="out1" />
+      <IdentCon UId="24" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="22" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="24" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Override HMI mode selection</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="26" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="iLastMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bNewMode" />
+      </Symbol>
+    </Access>
+    <Part Name="Ne" UId="24">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="27" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="28" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="29" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Detect change in mode</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="2B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="iLastMode" />
+      </Symbol>
+    </Access>
+    <Part Name="Move" UId="23" DisabledENO="true">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <OpenCon UId="24" />
+      <NameCon UId="23" Name="en" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out1" />
+      <IdentCon UId="22" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="2E" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="2F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Keep track of last mode</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="30" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bNewMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bInEnable" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalConstant" UId="25">
+      <Constant Name="Modes.Manual">
+        <ConstantType Informative="true">Int</ConstantType>
+        <ConstantValue Informative="true">2</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Dec_signed</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalConstant" UId="28">
+      <Constant Name="Modes.Auto">
+        <ConstantType Informative="true">Int</ConstantType>
+        <ConstantValue Informative="true">1</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Dec_signed</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="30">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+      <Negated Name="in1" />
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="Eq" UId="31">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="A" UId="32">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="33" />
+    <Part Name="Eq" UId="34">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="A" UId="35">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="36" />
+  </Parts>
+  <Wires>
+    <Wire UId="37">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="in1" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="22" />
+      <NameCon UId="30" Name="in2" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="in3" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="24" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="in1" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="28" />
+      <NameCon UId="34" Name="in2" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="34" Name="out" />
+      <NameCon UId="35" Name="in2" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="35" Name="out" />
+      <NameCon UId="36" Name="in" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="29" />
+      <NameCon UId="36" Name="operand" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="32" Name="in1" />
+      <NameCon UId="35" Name="in1" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="31" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="32" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="33" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Determine if auto or manual mode is active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="35" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="bEnableHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="bEnableWork" />
+      </Symbol>
+    </Access>
+    <Part Name="O" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="A" UId="27">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in1" />
+    </Part>
+    <Part Name="Coil" UId="28" />
+    <Part Name="Coil" UId="29" />
+  </Parts>
+  <Wires>
+    <Wire UId="30">
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="in1" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="33">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in2" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="24" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text> IF manual mode AND no estop AND not a new mode AND enabled => 
+--if no cylinder errors, enable move to Home and Work
+--enable home and work HMI buttons only in manual mode</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="38" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="39" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Enable Home &amp; Work Positions</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3A" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bPB_Home" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bPB_Work" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPBEN_Home" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="bInCommandWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="bEnableHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="30">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in3" />
+    </Part>
+    <Part Name="A" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="O" UId="32">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="SCoil" UId="33" />
+    <Part Name="RCoil" UId="34" />
+  </Parts>
+  <Wires>
+    <Wire UId="35">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="in1" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="22" />
+      <NameCon UId="30" Name="in2" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="in3" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="30" Name="in4" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="32" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="42">
+      <IdentCon UId="27" />
+      <NameCon UId="31" Name="in3" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="operand" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="3C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>IF manual mode and home button is pressed =>
+--Set close cylinder</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="3D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="3E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Move to Home Position (Retracted)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="3F" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bPB_Work" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bPB_Home" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bPBEN_Work" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="bInCommandWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="bEnableWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="30">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in3" />
+    </Part>
+    <Part Name="A" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">3</TemplateValue>
+    </Part>
+    <Part Name="O" UId="32">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="SCoil" UId="33" />
+    <Part Name="RCoil" UId="34" />
+  </Parts>
+  <Wires>
+    <Wire UId="35">
+      <IdentCon UId="21" />
+      <NameCon UId="30" Name="in1" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="22" />
+      <NameCon UId="30" Name="in2" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="in3" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="24" />
+      <NameCon UId="30" Name="in4" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="32" Name="in1" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="41">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="42">
+      <IdentCon UId="27" />
+      <NameCon UId="31" Name="in3" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in2" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="operand" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="40" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="41" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>IF manual mode and work button button is pressed =>
+--Set open cylinder</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="42" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="43" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Move to Work Position (Extended)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="44" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bEnableHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="RCoil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="45" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>IF in auto AND home is not enabled => RESET home command</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="47" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="48" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset home on if not enabled</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="49" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bEnableWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="RCoil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="4B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>IF in auto AND work is not enabled => RESET work command</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="4C" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="4D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset work on if not enabled</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="4E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bAutoMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bManualMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="25">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in1" />
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="RCoil" UId="26" />
+    <Part Name="RCoil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="50" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>IF not in auto AND not in manual => RESET home and work commands
+</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="51" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="52" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset both home and work if not in auto or manual</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="53" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="54" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="55" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="56" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>--------------------------------------------------------- Errors ------------------------------------------------------------------</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="58" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="29">
+      <Symbol>
+        <Component Name="bReset" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="30">
+      <Symbol>
+        <Component Name="tInTimeout" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="31">
+      <Symbol>
+        <Component Name="tTimeoutElapsed" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="32">
+      <Symbol>
+        <Component Name="bTON_TimeOut" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="33">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="A" UId="34">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="A" UId="35">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="A" UId="36">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="O" UId="37">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+    </Part>
+    <Part Name="A" UId="38">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="TON" Version="1.0" UId="39">
+      <Instance Scope="LocalVariable" UId="40">
+        <Component Name="TON_TimeOut" />
+      </Instance>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="41" />
+  </Parts>
+  <Wires>
+    <Wire UId="42">
+      <IdentCon UId="21" />
+      <NameCon UId="33" Name="in1" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="22" />
+      <NameCon UId="33" Name="in2" />
+    </Wire>
+    <Wire UId="44">
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="37" Name="in1" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="23" />
+      <NameCon UId="34" Name="in1" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="24" />
+      <NameCon UId="34" Name="in2" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="34" Name="out" />
+      <NameCon UId="37" Name="in2" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="25" />
+      <NameCon UId="35" Name="in1" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="26" />
+      <NameCon UId="35" Name="in2" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="35" Name="out" />
+      <NameCon UId="37" Name="in3" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="27" />
+      <NameCon UId="36" Name="in1" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="28" />
+      <NameCon UId="36" Name="in2" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="36" Name="out" />
+      <NameCon UId="37" Name="in4" />
+    </Wire>
+    <Wire UId="54">
+      <NameCon UId="37" Name="out" />
+      <NameCon UId="38" Name="in1" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="in2" />
+    </Wire>
+    <Wire UId="56">
+      <NameCon UId="38" Name="out" />
+      <NameCon UId="39" Name="IN" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="30" />
+      <NameCon UId="39" Name="PT" />
+    </Wire>
+    <Wire UId="58">
+      <NameCon UId="39" Name="ET" />
+      <IdentCon UId="31" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="39" Name="Q" />
+      <NameCon UId="41" Name="in" />
+    </Wire>
+    <Wire UId="60">
+      <IdentCon UId="32" />
+      <NameCon UId="41" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="59" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Time delay for errors</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="5B" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="5C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Timeout timer</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="5D" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bTON_TimeOut" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="NoHomeFeedback" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in1" />
+      <Negated Name="in4" />
+    </Part>
+    <Part Name="SCoil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="25" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="5E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="60" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="61" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Error: Home position feedback not active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="62" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bTON_TimeOut" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="NoWorkFeedback" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in1" />
+      <Negated Name="in4" />
+    </Part>
+    <Part Name="SCoil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="25" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="63" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="64" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Not reach work position</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="65" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="66" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Error: Work position feedback not active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="67" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bTON_TimeOut" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="HomeFeedbackStillActive" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in1" />
+    </Part>
+    <Part Name="SCoil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="25" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="68" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="69" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Home position still active
+</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6A" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="6B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Error: Home position feedback still active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="6C" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bTON_TimeOut" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="WorkFeedbackStillActive" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
+      <Negated Name="in1" />
+    </Part>
+    <Part Name="SCoil" UId="27" />
+  </Parts>
+  <Wires>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
+    </Wire>
+    <Wire UId="32">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="25" />
+      <NameCon UId="27" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="6D" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="6E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Work position still active
+
+</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6F" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="70" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Error: Work position feedback still active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="71" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="NoHomeFeedback" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="NoWorkFeedback" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="HomeFeedbackStillActive" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="ERROR_Valve" />
+        <Component Name="WorkFeedbackStillActive" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iErrorCode" />
+      </Symbol>
+    </Access>
+    <Call UId="28">
+      <CallInfo Name="fbErrorScroller" BlockType="FB">
+        <IntegerAttribute Name="BlockNumber" Informative="true">330</IntegerAttribute>
+        <DateAttribute Name="ParameterModifiedTS" Informative="true">2016-08-18T17:27:42</DateAttribute>
+        <Instance Scope="LocalVariable" UId="29">
+          <Component Name="ErrorScroller" />
+        </Instance>
+        <Parameter Name="bInError01" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError02" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError03" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError04" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError05" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError06" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError07" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError08" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError09" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError10" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError11" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError12" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError13" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError14" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError15" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError16" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError17" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError18" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError19" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError20" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError21" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError22" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError23" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError24" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError25" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError26" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError27" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError28" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError29" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError30" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bOutErrorExists" Section="Output" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="iOutScrollingErrorNumber" Section="Output" Type="Int">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="56">
+      <OpenCon UId="30" />
+      <NameCon UId="28" Name="en" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="bInError01" />
+    </Wire>
+    <Wire UId="58">
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="bInError02" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="23" />
+      <NameCon UId="28" Name="bInError03" />
+    </Wire>
+    <Wire UId="60">
+      <IdentCon UId="24" />
+      <NameCon UId="28" Name="bInError04" />
+    </Wire>
+    <Wire UId="61">
+      <IdentCon UId="25" />
+      <NameCon UId="28" Name="bInError05" />
+    </Wire>
+    <Wire UId="62">
+      <OpenCon UId="31" />
+      <NameCon UId="28" Name="bInError06" />
+    </Wire>
+    <Wire UId="63">
+      <OpenCon UId="32" />
+      <NameCon UId="28" Name="bInError07" />
+    </Wire>
+    <Wire UId="64">
+      <OpenCon UId="33" />
+      <NameCon UId="28" Name="bInError08" />
+    </Wire>
+    <Wire UId="65">
+      <OpenCon UId="34" />
+      <NameCon UId="28" Name="bInError09" />
+    </Wire>
+    <Wire UId="66">
+      <OpenCon UId="35" />
+      <NameCon UId="28" Name="bInError10" />
+    </Wire>
+    <Wire UId="67">
+      <OpenCon UId="36" />
+      <NameCon UId="28" Name="bInError11" />
+    </Wire>
+    <Wire UId="68">
+      <OpenCon UId="37" />
+      <NameCon UId="28" Name="bInError12" />
+    </Wire>
+    <Wire UId="69">
+      <OpenCon UId="38" />
+      <NameCon UId="28" Name="bInError13" />
+    </Wire>
+    <Wire UId="70">
+      <OpenCon UId="39" />
+      <NameCon UId="28" Name="bInError14" />
+    </Wire>
+    <Wire UId="71">
+      <OpenCon UId="40" />
+      <NameCon UId="28" Name="bInError15" />
+    </Wire>
+    <Wire UId="72">
+      <OpenCon UId="41" />
+      <NameCon UId="28" Name="bInError16" />
+    </Wire>
+    <Wire UId="73">
+      <OpenCon UId="42" />
+      <NameCon UId="28" Name="bInError17" />
+    </Wire>
+    <Wire UId="74">
+      <OpenCon UId="43" />
+      <NameCon UId="28" Name="bInError18" />
+    </Wire>
+    <Wire UId="75">
+      <OpenCon UId="44" />
+      <NameCon UId="28" Name="bInError19" />
+    </Wire>
+    <Wire UId="76">
+      <OpenCon UId="45" />
+      <NameCon UId="28" Name="bInError20" />
+    </Wire>
+    <Wire UId="77">
+      <OpenCon UId="46" />
+      <NameCon UId="28" Name="bInError21" />
+    </Wire>
+    <Wire UId="78">
+      <OpenCon UId="47" />
+      <NameCon UId="28" Name="bInError22" />
+    </Wire>
+    <Wire UId="79">
+      <OpenCon UId="48" />
+      <NameCon UId="28" Name="bInError23" />
+    </Wire>
+    <Wire UId="80">
+      <OpenCon UId="49" />
+      <NameCon UId="28" Name="bInError24" />
+    </Wire>
+    <Wire UId="81">
+      <OpenCon UId="50" />
+      <NameCon UId="28" Name="bInError25" />
+    </Wire>
+    <Wire UId="82">
+      <OpenCon UId="51" />
+      <NameCon UId="28" Name="bInError26" />
+    </Wire>
+    <Wire UId="83">
+      <OpenCon UId="52" />
+      <NameCon UId="28" Name="bInError27" />
+    </Wire>
+    <Wire UId="84">
+      <OpenCon UId="53" />
+      <NameCon UId="28" Name="bInError28" />
+    </Wire>
+    <Wire UId="85">
+      <OpenCon UId="54" />
+      <NameCon UId="28" Name="bInError29" />
+    </Wire>
+    <Wire UId="86">
+      <OpenCon UId="55" />
+      <NameCon UId="28" Name="bInError30" />
+    </Wire>
+    <Wire UId="87">
+      <NameCon UId="28" Name="bOutErrorExists" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="88">
+      <NameCon UId="28" Name="iOutScrollingErrorNumber" />
+      <IdentCon UId="27" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="72" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="73" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Call the Error-Scroller which cyles through all possible errors and checks 
+their state for display on the HMI</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="74" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="75" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Error scroller</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="76" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEnable" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bInterlock" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="23">
+      <Negated Name="in" />
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="77" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="78" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="79" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Interlock</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="7B" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="bInEstop" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="25">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="27">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iStatus" />
+      </Symbol>
+    </Access>
+    <Call UId="29">
+      <CallInfo Name="fcSetHMIStatusSimulation" BlockType="FC">
+        <IntegerAttribute Name="BlockNumber" Informative="true">333</IntegerAttribute>
+        <DateAttribute Name="ParameterModifiedTS" Informative="true">2019-07-16T09:38:07</DateAttribute>
+        <Parameter Name="bInEstop" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInError" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInForwardWork" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInReverseHome" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOnForwardWork" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInOnReverseHome" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="bInSimulate" Section="Input" Type="Bool">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+        <Parameter Name="iOutStatus" Section="Output" Type="Int">
+          <StringAttribute Name="InterfaceFlags" Informative="true">S7_Visible</StringAttribute>
+        </Parameter>
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="31">
+      <OpenCon UId="30" />
+      <NameCon UId="29" Name="en" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="bInEstop" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="bInError" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="bInForwardWork" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="bInReverseHome" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="bInOnForwardWork" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="26" />
+      <NameCon UId="29" Name="bInOnReverseHome" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="27" />
+      <NameCon UId="29" Name="bInSimulate" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="29" Name="iOutStatus" />
+      <IdentCon UId="28" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7C" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="7D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="7E" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Set HMI status</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="80" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="81" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="82" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="83" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="84" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>-------------------------------------------------- Outputs --------------------------------------------------</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="85" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bOutCommandHome" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="86" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="87" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="88" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="89" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Output: Home Command</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8A" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bInSimulate" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bOutCommandWork" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+      <Negated Name="in2" />
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="8B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="8C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="8E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Output: Work Command</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8F" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bHomeOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalHome" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bOutActiveHome" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="90" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="91" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="92" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="93" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Output: Home Active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="94" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bWorkOn" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bSignalWork" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bOutActiveWork" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="24">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="95" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="96" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="97" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="98" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Output: Work Active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="99" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="iMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalConstant" UId="22">
+      <Constant Name="Modes.Auto">
+        <ConstantType Informative="true">Int</ConstantType>
+        <ConstantValue Informative="true">1</ConstantValue>
+        <StringAttribute Name="Format" Informative="true">Dec_signed</StringAttribute>
+      </Constant>
+    </Access>
+    <Access Scope="LocalVariable" UId="23">
+      <Symbol>
+        <Component Name="bOutAuto" />
+      </Symbol>
+    </Access>
+    <Part Name="Eq" UId="24">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="25" />
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="in1" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="in2" />
+    </Wire>
+    <Wire UId="28">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="23" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9A" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="9B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="9C" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="9D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Output: Auto</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="9E" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="LocalVariable" UId="21">
+      <Symbol>
+        <Component Name="HMI_ValveControl" />
+        <Component Name="bError" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
+      <Symbol>
+        <Component Name="bOutError" />
+      </Symbol>
+    </Access>
+    <Part Name="Coil" UId="23" />
+  </Parts>
+  <Wires>
+    <Wire UId="24">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="25">
+      <IdentCon UId="22" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9F" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A0" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="A1" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="A2" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Output: Error</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="A3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Part Name="ReturnTrue" UId="21" />
+  </Parts>
+  <Wires>
+    <Wire UId="23">
+      <OpenCon UId="22" />
+      <NameCon UId="21" Name="in" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>FBD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="A5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="A6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="A7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Set ENO</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="A8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="A9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Controls a double- or single-acting valve</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

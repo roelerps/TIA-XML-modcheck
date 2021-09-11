@@ -1,0 +1,438 @@
+OrganizationBlock: OB1 (Main) (FBD)
+Network 1:
+Call: FB4 (Valve Drain), Instance: Valve Drain_DB (GlobalVariable)
+Inputs:
+Outputs:
+Network 2:
+Call: FB2 (Valve Liquid 1), Instance: Valve Liquid 1_DB (GlobalVariable)
+Inputs:
+Outputs:
+Network 3:
+Call: FB3 (Valve Liquid 2), Instance: Valve Liquid 2_DB (GlobalVariable)
+Inputs:
+Outputs:
+Network 4:
+Call: FB5 (Program Logic), Instance: Program Logic_DB (GlobalVariable)
+Inputs:
+Outputs:
+
+FunctionBlock: FB110 (fbValve_Solenoid) (FBD)
+Network 2:
+Call: FC329 (fcHMIBitEnable)
+Inputs:
+false ==> bInToggle
+false ==> bInLatch
+bManualMode ==> bInEnable
+HMI_ValveControl.bPB_Home ==> bInOutHMI
+bPB_Home ==> bInOutPLC
+Outputs:
+bOutEnable ==> HMI_ValveControl.bPBEN_Home
+eno ==> en
+Call: FC329 (fcHMIBitEnable)
+Inputs:
+eno ==> en
+false ==> bInToggle
+false ==> bInLatch
+bManualMode ==> bInEnable
+HMI_ValveControl.bPB_Work ==> bInOutHMI
+bPB_Work ==> bInOutPLC
+Outputs:
+bOutEnable ==> HMI_ValveControl.bPBEN_Work
+eno ==> en
+Call: FC329 (fcHMIBitEnable)
+Inputs:
+eno ==> en
+false ==> bInToggle
+false ==> bInLatch
+HMI_ValveControl.bError ==> bInEnable
+HMI_ValveControl.bPB_ResetError ==> bInOutHMI
+bPB_ResetError ==> bInOutPLC
+Outputs:
+bOutEnable ==> HMI_ValveControl.bPBEN_ResetError
+Network 3:
+HMI_ValveControl.bSignalHome = ((bInSignalHome && !bInSimulate) || (HMI_ValveControl.bHomeOn && bInSimulate)) 
+Network 4:
+HMI_ValveControl.bSignalWork = ((bInSignalWork && !bInSimulate) || (HMI_ValveControl.bWorkOn && bInSimulate)) 
+Network 6:
+bReset = ((bInResetError || bPB_ResetError) && HMI_ValveControl.bPBEN_ResetError) 
+ERROR_Valve.NoHomeFeedback = (if ((bInResetError || bPB_ResetError) && HMI_ValveControl.bPBEN_ResetError) then FALSE) 
+ERROR_Valve.NoWorkFeedback = (if ((bInResetError || bPB_ResetError) && HMI_ValveControl.bPBEN_ResetError) then FALSE) 
+ERROR_Valve.HomeFeedbackStillActive = (if ((bInResetError || bPB_ResetError) && HMI_ValveControl.bPBEN_ResetError) then FALSE) 
+ERROR_Valve.WorkFeedbackStillActive = (if ((bInResetError || bPB_ResetError) && HMI_ValveControl.bPBEN_ResetError) then FALSE) 
+Network 7:
+HMI_ValveControl.iMode = (if (iInMode <> Modes.Independent) then iInMode) 
+Network 8:
+bNewMode = (HMI_ValveControl.iMode <> iLastMode) 
+Network 9:
+iLastMode = HMI_ValveControl.iMode 
+Network 10:
+bManualMode = ((HMI_ValveControl.iMode == Modes.Manual) && (!bInEstop && !bNewMode && bInEnable)) 
+bAutoMode = ((HMI_ValveControl.iMode == Modes.Auto) && (!bInEstop && !bNewMode && bInEnable)) 
+Network 11:
+bEnableHome = (!HMI_ValveControl.bError && (bManualMode || bAutoMode)) 
+bEnableWork = (!HMI_ValveControl.bError && (bManualMode || bAutoMode)) 
+Network 12:
+HMI_ValveControl.bHomeOn = (if ((bManualMode && bPB_Home && !bPB_Work && HMI_ValveControl.bPBEN_Home) || (bAutoMode && !bInCommandWork && bEnableHome)) then TRUE) 
+HMI_ValveControl.bWorkOn = (if ((bManualMode && bPB_Home && !bPB_Work && HMI_ValveControl.bPBEN_Home) || (bAutoMode && !bInCommandWork && bEnableHome)) then FALSE) 
+Network 13:
+HMI_ValveControl.bWorkOn = (if ((bManualMode && bPB_Work && !bPB_Home && HMI_ValveControl.bPBEN_Work) || (bAutoMode && bInCommandWork && bEnableWork)) then TRUE) 
+HMI_ValveControl.bHomeOn = (if ((bManualMode && bPB_Work && !bPB_Home && HMI_ValveControl.bPBEN_Work) || (bAutoMode && bInCommandWork && bEnableWork)) then FALSE) 
+Network 14:
+HMI_ValveControl.bHomeOn = (if (bAutoMode && !bEnableHome) then FALSE) 
+Network 15:
+HMI_ValveControl.bWorkOn = (if (bAutoMode && !bEnableWork) then FALSE) 
+Network 16:
+HMI_ValveControl.bHomeOn = (if (!bAutoMode && !bManualMode) then FALSE) 
+HMI_ValveControl.bWorkOn = (if (!bAutoMode && !bManualMode) then FALSE) 
+Network 18:
+bTON_TimeOut = (TON: TON_TimeOut IN:(((HMI_ValveControl.bHomeOn && !HMI_ValveControl.bSignalHome) || (HMI_ValveControl.bWorkOn && !HMI_ValveControl.bSignalWork) || (HMI_ValveControl.bSignalHome && HMI_ValveControl.bWorkOn) || (HMI_ValveControl.bSignalWork && HMI_ValveControl.bHomeOn)) && !bReset) PT:tInTimeout) 
+Network 19:
+ERROR_Valve.NoHomeFeedback = (if (!bInEstop && bTON_TimeOut && HMI_ValveControl.bHomeOn && !HMI_ValveControl.bSignalHome) then TRUE) 
+Network 20:
+ERROR_Valve.NoWorkFeedback = (if (!bInEstop && bTON_TimeOut && HMI_ValveControl.bWorkOn && !HMI_ValveControl.bSignalWork) then TRUE) 
+Network 21:
+ERROR_Valve.HomeFeedbackStillActive = (if (!bInEstop && bTON_TimeOut && HMI_ValveControl.bWorkOn && HMI_ValveControl.bSignalHome) then TRUE) 
+Network 22:
+ERROR_Valve.WorkFeedbackStillActive = (if (!bInEstop && bTON_TimeOut && HMI_ValveControl.bHomeOn && HMI_ValveControl.bSignalWork) then TRUE) 
+Network 23:
+Call: FB330 (fbErrorScroller), Instance: ErrorScroller (LocalVariable)
+Inputs:
+ERROR_Valve.NoHomeFeedback ==> bInError01
+ERROR_Valve.NoWorkFeedback ==> bInError02
+ERROR_Valve.HomeFeedbackStillActive ==> bInError03
+ERROR_Valve.WorkFeedbackStillActive ==> bInError04
+bInEstop ==> bInError05
+Outputs:
+bOutErrorExists ==> HMI_ValveControl.bError
+iOutScrollingErrorNumber ==> HMI_ValveControl.iErrorCode
+Network 24:
+HMI_ValveControl.bInterlock != bInEnable 
+Network 25:
+Call: FC333 (fcSetHMIStatusSimulation)
+Inputs:
+bInEstop ==> bInEstop
+HMI_ValveControl.bError ==> bInError
+HMI_ValveControl.bSignalWork ==> bInForwardWork
+HMI_ValveControl.bSignalHome ==> bInReverseHome
+HMI_ValveControl.bWorkOn ==> bInOnForwardWork
+HMI_ValveControl.bHomeOn ==> bInOnReverseHome
+bInSimulate ==> bInSimulate
+Outputs:
+iOutStatus ==> HMI_ValveControl.iStatus
+Network 27:
+bOutCommandHome = (HMI_ValveControl.bHomeOn && !bInSimulate) 
+Network 28:
+bOutCommandWork = (HMI_ValveControl.bWorkOn && !bInSimulate) 
+Network 29:
+bOutActiveHome = (HMI_ValveControl.bHomeOn && HMI_ValveControl.bSignalHome) 
+Network 30:
+bOutActiveWork = (HMI_ValveControl.bWorkOn && HMI_ValveControl.bSignalWork) 
+Network 31:
+bOutAuto = (HMI_ValveControl.iMode == Modes.Auto) 
+Network 32:
+bOutError = HMI_ValveControl.bError 
+Network 33:
+
+FunctionBlock: FB185 (fbStepSequencer) (SCL)
+
+Function: FC185 (fcStepChooser) (SCL)
+
+FunctionBlock: FB330 (fbErrorScroller) (FBD)
+Network 1:
+iErrorsScrollNum = (if ((iErrorsScrollNum < ciNoErrrors) || (iErrorsScrollNum > ciIndexHigh)) then ciNoErrrors) 
+iNextScrollNum = (if ((iNextScrollNum < ciIndexLow) || (iNextScrollNum > ciIndexHigh)) then ciIndexLow) 
+Network 2:
+abErrors[1] = bInError01 
+abErrors[2] = bInError02 
+abErrors[3] = bInError03 
+abErrors[4] = bInError04 
+abErrors[5] = bInError05 
+abErrors[6] = bInError06 
+abErrors[7] = bInError07 
+abErrors[8] = bInError08 
+abErrors[9] = bInError09 
+abErrors[10] = bInError10 
+abErrors[11] = bInError11 
+abErrors[12] = bInError12 
+abErrors[13] = bInError13 
+abErrors[14] = bInError14 
+abErrors[15] = bInError15 
+abErrors[16] = bInError16 
+abErrors[17] = bInError17 
+abErrors[18] = bInError18 
+abErrors[19] = bInError19 
+abErrors[20] = bInError20 
+abErrors[21] = bInError21 
+abErrors[22] = bInError22 
+abErrors[23] = bInError23 
+abErrors[24] = bInError24 
+abErrors[25] = bInError25 
+abErrors[26] = bInError26 
+abErrors[27] = bInError27 
+abErrors[28] = bInError28 
+abErrors[29] = bInError29 
+abErrors[30] = bInError30 
+bErrorExists = (bInError01 || bInError02 || bInError03 || bInError04 || bInError05 || bInError06 || bInError07 || bInError08 || bInError09 || bInError10 || bInError11 || bInError12 || bInError13 || bInError14 || bInError15 || bInError16 || bInError17 || bInError18 || bInError19 || bInError20 || bInError21 || bInError22 || bInError23 || bInError24 || bInError25 || bInError26 || bInError27 || bInError28 || bInError29 || bInError30) 
+Network 3:
+bTON_ErrorDelay = (TON: TON_ErrorDelay IN:(bErrorExists && !bTON_ErrorDelay) PT:T#2S) 
+Network 4:
+iNextScrollNum = (if bTON_ErrorDelay then iErrorsScrollNum) 
+iErrorsScrollNum = (if !bErrorExists then ciNoErrrors) 
+bScrolling = ((if ((bErrorExists && (iErrorsScrollNum == ciNoErrrors)) || bTON_ErrorDelay) then TRUE) (elseif !bErrorExists then FALSE)) 
+Network 5:
+(iNextScrollNum = (if bScrolling then 1 + iNextScrollNum)) 
+iNextScrollNum = (if (((iNextScrollNum > ciIndexHigh) || (iNextScrollNum < ciIndexLow)) && bScrolling) then ciIndexLow) 
+Network 6:
+iErrorsScrollNum = (if (bScrolling && abErrors[iNextScrollNum]) then iNextScrollNum) 
+bScrolling = (if (bScrolling && abErrors[iNextScrollNum]) then FALSE) 
+Network 7:
+iOutScrollingErrorNumber = iErrorsScrollNum 
+bOutErrorExists = bErrorExists 
+Network 8:
+
+Function: FC329 (fcHMIBitEnable) (FBD)
+Network 1:
+bInOutPLC = (if (!bInToggle && !bInLatch) then FALSE) 
+Network 2:
+bInOutPLC = (if (bInEnable && bInOutHMI && bInToggle && bInOutPLC) then FALSE) 
+bInOutHMI = (if (bInEnable && bInOutHMI && bInToggle && bInOutPLC) then FALSE) 
+Network 3:
+bInOutPLC = (if (bInEnable && bInOutHMI && bInToggle && !bInOutPLC) then TRUE) 
+Network 4:
+bInOutPLC = (if (bInEnable && bInOutHMI && !bInToggle) then TRUE) 
+Network 5:
+bOutEnable = bInEnable 
+Network 6:
+bInOutHMI = FALSE 
+Network 7:
+
+Function: FC333 (fcSetHMIStatusSimulation) (FBD)
+Network 1:
+iOutStatus = (if (bInSimulate && bInOnReverseHome) then HMI.Status.SimulatedOnReverseHome) 
+iOutStatus = (if (!bInSimulate && bInOnReverseHome) then HMI.Status.OnReverseHome) 
+Network 2:
+iOutStatus = (if (bInSimulate && bInOnForwardWork) then HMI.Status.SimulatedOnForwardWork) 
+iOutStatus = (if (!bInSimulate && bInOnForwardWork) then HMI.Status.OnForwardWork) 
+Network 3:
+iOutStatus = (if (bInSimulate && bInReverseHome) then HMI.Status.SimulatedReverseHome) 
+iOutStatus = (if (!bInSimulate && bInReverseHome) then HMI.Status.ReverseHome) 
+Network 4:
+iOutStatus = (if (bInSimulate && bInForwardWork) then HMI.Status.SimulatedForwardWork) 
+iOutStatus = (if (!bInSimulate && bInForwardWork) then HMI.Status.ForwardWork) 
+Network 5:
+iOutStatus = (if bInError then HMI.Status.Error) 
+Network 6:
+iOutStatus = (if bInEstop then HMI.Status.Estop) 
+Network 7:
+iOutStatus = (if (!bInEstop && !bInError && !bInForwardWork && !bInReverseHome && !bInOnForwardWork && !bInOnReverseHome) then HMI.Status.Stopped) 
+Network 8:
+
+FunctionBlock: FB5 (Program Logic) (FBD)
+Network 1:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 0) ==> en
+Ib_PBStart ==> bCondition
+10 ==> iTrueStep
+0 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 3:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 10) ==> en
+(Ib_LvlContEmpty && !Ib_LvlContFull) ==> bCondition
+20 ==> iTrueStep
+11 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 4:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 11) ==> en
+(Ib_LvlContEmpty && !Ib_LvlContFull) ==> bCondition
+20 ==> iTrueStep
+11 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 6:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 20) ==> en
+Ib_PBFillLiq1 ==> bCondition
+21 ==> iTrueStep
+20 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 7:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 21) ==> en
+Ib_LvlContFull ==> bCondition
+30 ==> iTrueStep
+21 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 9:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 30) ==> en
+Ib_PBEmptyCont ==> bCondition
+31 ==> iTrueStep
+30 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 10:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 31) ==> en
+Ib_LvlContEmpty ==> bCondition
+40 ==> iTrueStep
+31 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 12:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 40) ==> en
+Ib_PBFillLiq2 ==> bCondition
+41 ==> iTrueStep
+40 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 13:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 41) ==> en
+Ib_LvlContFull ==> bCondition
+50 ==> iTrueStep
+41 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 15:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 50) ==> en
+Ib_PBEmptyCont ==> bCondition
+51 ==> iTrueStep
+50 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 16:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 51) ==> en
+Ib_LvlContEmpty ==> bCondition
+60 ==> iTrueStep
+51 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 18:
+Call: FC185 (fcStepChooser)
+Inputs:
+(CurrentStep == 60) ==> en
+Ib_PBStop ==> bCondition
+0 ==> iTrueStep
+60 ==> iFalseStep
+Outputs:
+Ret_Val ==> NextStep
+eno ==> StepDone = TRUE
+Network 20:
+Call: FB185 (fbStepSequencer), Instance: StepSeq (LocalVariable)
+Inputs:
+CurrentStep ==> iInStep
+NextStep ==> iInNextStep
+StepDone ==> bInStepDone
+Outputs:
+iOutCurrentStep ==> CurrentStep
+eno ==> StepDone = FALSE
+Network 22:
+DB_ProgramLogic.VlvDrn_Open = ((CurrentStep == 11) || (CurrentStep == 31) || (CurrentStep == 51)) 
+DB_ProgramLogic.VlvLiq1_Open = (CurrentStep == 21) 
+DB_ProgramLogic.VlvLiq2_Open = (CurrentStep == 41) 
+
+Function: FC2 (TestExecOrd) (FBD)
+Network 1:
+Var X = (if true then 0) 
+Alarm_1 = (if ((Var X <> 0) && true) then TRUE) 
+(Var X = (if true then Var X + 1)) 
+Alarm_2 = (if (Var X <> 1) then TRUE) 
+(Var X = (if true then Var X + 2)) 
+Alarm_3 = (if (Var X <> 3) then TRUE) 
+(Var X = 3 + Var X) 
+Alarm_4 = (if (Var X <> 6) then TRUE) 
+Network 2:
+Result_as_Expected = (Var X == 6) 
+
+FunctionBlock: FB6 (TestExecOrd2) (FBD)
+Network 1:
+Xnot20 = (if (X <> 20) then TRUE) 
+X = 10 
+Xnot10 = (if (X <> 10) then TRUE) 
+(X = 2 + X) 
+Xnot12 = (if (X <> 12) then TRUE) 
+(X = 3 + X) 
+Xnot15 = (if (X <> 15) then TRUE) 
+(X = 5 + X) 
+Xnot20 = (if (X <> 20) then TRUE) 
+Network 2:
+NOK = (Xnot10 || Xnot12 || Xnot15 || Xnot20) 
+Network 3:
+NOK = ((Xnot10 && Xnot12) || (Xnot15 && Xnot20)) 
+
+FunctionBlock: FB4 (Valve Drain) (FBD)
+Network 1:
+Call: FB110 (fbValve_Solenoid), Instance: VlvDrn (LocalVariable)
+Inputs:
+t#2s ==> tInTimeout
+1 ==> iInMode
+Ib_VlvDrnClosed ==> bInSignalHome
+Ib_VlvDrnOpened ==> bInSignalWork
+true ==> bInEnable
+DB_ProgramLogic.VlvDrn_Open ==> bInCommandWork
+Ib_PBReset ==> bInResetError
+DB_HMI.VlvDrn ==> HMI_ValveControl
+Outputs:
+bOutCommandWork ==> Qb_VlvDrnOpen
+
+FunctionBlock: FB2 (Valve Liquid 1) (FBD)
+Network 1:
+Call: FB110 (fbValve_Solenoid), Instance: VlvLiq1 (LocalVariable)
+Inputs:
+t#2s ==> tInTimeout
+1 ==> iInMode
+Ib_VlvLiq1Closed ==> bInSignalHome
+Ib_VlvLiq1Opened ==> bInSignalWork
+true ==> bInEnable
+DB_ProgramLogic.VlvLiq1_Open ==> bInCommandWork
+Ib_PBReset ==> bInResetError
+DB_HMI.VlvLiq1 ==> HMI_ValveControl
+Outputs:
+bOutCommandWork ==> Qb_VlvLiq1Open
+
+FunctionBlock: FB3 (Valve Liquid 2) (FBD)
+Network 1:
+Call: FB110 (fbValve_Solenoid), Instance: VlvLiq2 (LocalVariable)
+Inputs:
+t#2s ==> tInTimeout
+1 ==> iInMode
+Ib_VlvLiq2Closed ==> bInSignalHome
+Ib_VlvLiq2Opened ==> bInSignalWork
+true ==> bInEnable
+DB_ProgramLogic.VlvLiq2_Open ==> bInCommandWork
+Ib_PBReset ==> bInResetError
+DB_HMI.VlvLiq2 ==> HMI_ValveControl
+Outputs:
+bOutCommandWork ==> Qb_VlvLiq2Open
+

@@ -1,0 +1,727 @@
+Main OB1
+Network number: 1
+Valve Drain FB4 (Valve Drain_DB DB7)
+Inputs: 
+   - --> en (BOOL)
+Outputs: 
+   eno (BOOL) --> -
+Network number: 2
+Valve Liquid 1 FB2 (Valve Liquid 1_DB DB8)
+Inputs: 
+   - --> en (BOOL)
+Outputs: 
+   eno (BOOL) --> -
+Network number: 3
+Valve Liquid 2 FB3 (Valve Liquid 2_DB DB9)
+Inputs: 
+   - --> en (BOOL)
+Outputs: 
+   eno (BOOL) --> -
+Network number: 4
+Program Logic FB5 (Program Logic_DB DB2)
+Inputs: 
+   - --> en (BOOL)
+Outputs: 
+   eno (BOOL) --> -
+|--Valve Drain FB4 (Valve Drain_DB DB7)
+|--Network number: 1
+|--fbValve_Solenoid FB110 (VlvDrn)
+|--Inputs: 
+|--   t#2s --> tInTimeout (TIME)
+|--   1 --> iInMode (INT)
+|--   - --> bInEstop (BOOL)
+|--   Ib_VlvDrnClosed --> bInSignalHome (BOOL)
+|--   Ib_VlvDrnOpened --> bInSignalWork (BOOL)
+|--   true --> bInEnable (BOOL)
+|--   DB_ProgramLogic.VlvDrn_Open --> bInCommandWork (BOOL)
+|--   Ib_PBReset --> bInResetError (BOOL)
+|--   - --> bInSimulate (BOOL)
+|--   - --> en (BOOL)
+|--   DB_HMI.VlvDrn --> HMI_ValveControl (UDT of udtHMI_ValveControl)
+|--Outputs: 
+|--   bOutCommandHome (BOOL) --> -
+|--   bOutCommandWork (BOOL) --> Qb_VlvDrnOpen
+|--   bOutActiveHome (BOOL) --> -
+|--   bOutActiveWork (BOOL) --> -
+|--   bOutAuto (BOOL) --> -
+|--   bOutError (BOOL) --> -
+|--   ERROR_Valve (UDT of udtError_Valve) --> -
+|--   eno (BOOL) --> -
+|--|--fbValve_Solenoid FB110 (VlvDrn)
+|--|--Network number: 2
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   bManualMode --> bInEnable (BOOL)
+|--|--   - --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_Home --> bInOutHMI (BOOL)
+|--|--   bPB_Home --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_Home
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> en
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   bManualMode --> bInEnable (BOOL)
+|--|--   eno --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_Work --> bInOutHMI (BOOL)
+|--|--   bPB_Work --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_Work
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> en
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   HMI_ValveControl.bError --> bInEnable (BOOL)
+|--|--   eno --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_ResetError --> bInOutHMI (BOOL)
+|--|--   bPB_ResetError --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_ResetError
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> -
+|--|--Network number: 3
+|--|--Network number: 4
+|--|--Network number: 6
+|--|--Network number: 7
+|--|--Network number: 8
+|--|--Network number: 9
+|--|--Network number: 10
+|--|--Network number: 11
+|--|--Network number: 12
+|--|--Network number: 13
+|--|--Network number: 14
+|--|--Network number: 15
+|--|--Network number: 16
+|--|--Network number: 18
+|--|--Network number: 19
+|--|--Network number: 20
+|--|--Network number: 21
+|--|--Network number: 22
+|--|--Network number: 23
+|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--Inputs: 
+|--|--   ERROR_Valve.NoHomeFeedback --> bInError01 (BOOL)
+|--|--   ERROR_Valve.NoWorkFeedback --> bInError02 (BOOL)
+|--|--   ERROR_Valve.HomeFeedbackStillActive --> bInError03 (BOOL)
+|--|--   ERROR_Valve.WorkFeedbackStillActive --> bInError04 (BOOL)
+|--|--   bInEstop --> bInError05 (BOOL)
+|--|--   - --> bInError06 (BOOL)
+|--|--   - --> bInError07 (BOOL)
+|--|--   - --> bInError08 (BOOL)
+|--|--   - --> bInError09 (BOOL)
+|--|--   - --> bInError10 (BOOL)
+|--|--   - --> bInError11 (BOOL)
+|--|--   - --> bInError12 (BOOL)
+|--|--   - --> bInError13 (BOOL)
+|--|--   - --> bInError14 (BOOL)
+|--|--   - --> bInError15 (BOOL)
+|--|--   - --> bInError16 (BOOL)
+|--|--   - --> bInError17 (BOOL)
+|--|--   - --> bInError18 (BOOL)
+|--|--   - --> bInError19 (BOOL)
+|--|--   - --> bInError20 (BOOL)
+|--|--   - --> bInError21 (BOOL)
+|--|--   - --> bInError22 (BOOL)
+|--|--   - --> bInError23 (BOOL)
+|--|--   - --> bInError24 (BOOL)
+|--|--   - --> bInError25 (BOOL)
+|--|--   - --> bInError26 (BOOL)
+|--|--   - --> bInError27 (BOOL)
+|--|--   - --> bInError28 (BOOL)
+|--|--   - --> bInError29 (BOOL)
+|--|--   - --> bInError30 (BOOL)
+|--|--   - --> en (BOOL)
+|--|--Outputs: 
+|--|--   bOutErrorExists (BOOL) --> HMI_ValveControl.bError
+|--|--   iOutScrollingErrorNumber (INT) --> HMI_ValveControl.iErrorCode
+|--|--   eno (BOOL) --> -
+|--|--Network number: 24
+|--|--Network number: 25
+|--|--fcSetHMIStatusSimulation FC333
+|--|--Inputs: 
+|--|--   bInEstop --> bInEstop (BOOL)
+|--|--   HMI_ValveControl.bError --> bInError (BOOL)
+|--|--   HMI_ValveControl.bSignalWork --> bInForwardWork (BOOL)
+|--|--   HMI_ValveControl.bSignalHome --> bInReverseHome (BOOL)
+|--|--   HMI_ValveControl.bWorkOn --> bInOnForwardWork (BOOL)
+|--|--   HMI_ValveControl.bHomeOn --> bInOnReverseHome (BOOL)
+|--|--   bInSimulate --> bInSimulate (BOOL)
+|--|--   - --> en (BOOL)
+|--|--Outputs: 
+|--|--   iOutStatus (INT) --> HMI_ValveControl.iStatus
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> -
+|--|--Network number: 27
+|--|--Network number: 28
+|--|--Network number: 29
+|--|--Network number: 30
+|--|--Network number: 31
+|--|--Network number: 32
+|--|--Network number: 33
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--Network number: 8
+|--|--|--fcSetHMIStatusSimulation FC333
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--Network number: 8
+|--Valve Liquid 1 FB2 (Valve Liquid 1_DB DB8)
+|--Network number: 1
+|--fbValve_Solenoid FB110 (VlvLiq1)
+|--Inputs: 
+|--   t#2s --> tInTimeout (TIME)
+|--   1 --> iInMode (INT)
+|--   - --> bInEstop (BOOL)
+|--   Ib_VlvLiq1Closed --> bInSignalHome (BOOL)
+|--   Ib_VlvLiq1Opened --> bInSignalWork (BOOL)
+|--   true --> bInEnable (BOOL)
+|--   DB_ProgramLogic.VlvLiq1_Open --> bInCommandWork (BOOL)
+|--   Ib_PBReset --> bInResetError (BOOL)
+|--   - --> bInSimulate (BOOL)
+|--   - --> en (BOOL)
+|--   DB_HMI.VlvLiq1 --> HMI_ValveControl (UDT of udtHMI_ValveControl)
+|--Outputs: 
+|--   bOutCommandHome (BOOL) --> -
+|--   bOutCommandWork (BOOL) --> Qb_VlvLiq1Open
+|--   bOutActiveHome (BOOL) --> -
+|--   bOutActiveWork (BOOL) --> -
+|--   bOutAuto (BOOL) --> -
+|--   bOutError (BOOL) --> -
+|--   ERROR_Valve (UDT of udtError_Valve) --> -
+|--   eno (BOOL) --> -
+|--|--fbValve_Solenoid FB110 (VlvLiq1)
+|--|--Network number: 2
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   bManualMode --> bInEnable (BOOL)
+|--|--   - --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_Home --> bInOutHMI (BOOL)
+|--|--   bPB_Home --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_Home
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> en
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   bManualMode --> bInEnable (BOOL)
+|--|--   eno --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_Work --> bInOutHMI (BOOL)
+|--|--   bPB_Work --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_Work
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> en
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   HMI_ValveControl.bError --> bInEnable (BOOL)
+|--|--   eno --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_ResetError --> bInOutHMI (BOOL)
+|--|--   bPB_ResetError --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_ResetError
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> -
+|--|--Network number: 3
+|--|--Network number: 4
+|--|--Network number: 6
+|--|--Network number: 7
+|--|--Network number: 8
+|--|--Network number: 9
+|--|--Network number: 10
+|--|--Network number: 11
+|--|--Network number: 12
+|--|--Network number: 13
+|--|--Network number: 14
+|--|--Network number: 15
+|--|--Network number: 16
+|--|--Network number: 18
+|--|--Network number: 19
+|--|--Network number: 20
+|--|--Network number: 21
+|--|--Network number: 22
+|--|--Network number: 23
+|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--Inputs: 
+|--|--   ERROR_Valve.NoHomeFeedback --> bInError01 (BOOL)
+|--|--   ERROR_Valve.NoWorkFeedback --> bInError02 (BOOL)
+|--|--   ERROR_Valve.HomeFeedbackStillActive --> bInError03 (BOOL)
+|--|--   ERROR_Valve.WorkFeedbackStillActive --> bInError04 (BOOL)
+|--|--   bInEstop --> bInError05 (BOOL)
+|--|--   - --> bInError06 (BOOL)
+|--|--   - --> bInError07 (BOOL)
+|--|--   - --> bInError08 (BOOL)
+|--|--   - --> bInError09 (BOOL)
+|--|--   - --> bInError10 (BOOL)
+|--|--   - --> bInError11 (BOOL)
+|--|--   - --> bInError12 (BOOL)
+|--|--   - --> bInError13 (BOOL)
+|--|--   - --> bInError14 (BOOL)
+|--|--   - --> bInError15 (BOOL)
+|--|--   - --> bInError16 (BOOL)
+|--|--   - --> bInError17 (BOOL)
+|--|--   - --> bInError18 (BOOL)
+|--|--   - --> bInError19 (BOOL)
+|--|--   - --> bInError20 (BOOL)
+|--|--   - --> bInError21 (BOOL)
+|--|--   - --> bInError22 (BOOL)
+|--|--   - --> bInError23 (BOOL)
+|--|--   - --> bInError24 (BOOL)
+|--|--   - --> bInError25 (BOOL)
+|--|--   - --> bInError26 (BOOL)
+|--|--   - --> bInError27 (BOOL)
+|--|--   - --> bInError28 (BOOL)
+|--|--   - --> bInError29 (BOOL)
+|--|--   - --> bInError30 (BOOL)
+|--|--   - --> en (BOOL)
+|--|--Outputs: 
+|--|--   bOutErrorExists (BOOL) --> HMI_ValveControl.bError
+|--|--   iOutScrollingErrorNumber (INT) --> HMI_ValveControl.iErrorCode
+|--|--   eno (BOOL) --> -
+|--|--Network number: 24
+|--|--Network number: 25
+|--|--fcSetHMIStatusSimulation FC333
+|--|--Inputs: 
+|--|--   bInEstop --> bInEstop (BOOL)
+|--|--   HMI_ValveControl.bError --> bInError (BOOL)
+|--|--   HMI_ValveControl.bSignalWork --> bInForwardWork (BOOL)
+|--|--   HMI_ValveControl.bSignalHome --> bInReverseHome (BOOL)
+|--|--   HMI_ValveControl.bWorkOn --> bInOnForwardWork (BOOL)
+|--|--   HMI_ValveControl.bHomeOn --> bInOnReverseHome (BOOL)
+|--|--   bInSimulate --> bInSimulate (BOOL)
+|--|--   - --> en (BOOL)
+|--|--Outputs: 
+|--|--   iOutStatus (INT) --> HMI_ValveControl.iStatus
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> -
+|--|--Network number: 27
+|--|--Network number: 28
+|--|--Network number: 29
+|--|--Network number: 30
+|--|--Network number: 31
+|--|--Network number: 32
+|--|--Network number: 33
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--Network number: 8
+|--|--|--fcSetHMIStatusSimulation FC333
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--Network number: 8
+|--Valve Liquid 2 FB3 (Valve Liquid 2_DB DB9)
+|--Network number: 1
+|--fbValve_Solenoid FB110 (VlvLiq2)
+|--Inputs: 
+|--   t#2s --> tInTimeout (TIME)
+|--   1 --> iInMode (INT)
+|--   - --> bInEstop (BOOL)
+|--   Ib_VlvLiq2Closed --> bInSignalHome (BOOL)
+|--   Ib_VlvLiq2Opened --> bInSignalWork (BOOL)
+|--   true --> bInEnable (BOOL)
+|--   DB_ProgramLogic.VlvLiq2_Open --> bInCommandWork (BOOL)
+|--   Ib_PBReset --> bInResetError (BOOL)
+|--   - --> bInSimulate (BOOL)
+|--   - --> en (BOOL)
+|--   DB_HMI.VlvLiq2 --> HMI_ValveControl (UDT of udtHMI_ValveControl)
+|--Outputs: 
+|--   bOutCommandHome (BOOL) --> -
+|--   bOutCommandWork (BOOL) --> Qb_VlvLiq2Open
+|--   bOutActiveHome (BOOL) --> -
+|--   bOutActiveWork (BOOL) --> -
+|--   bOutAuto (BOOL) --> -
+|--   bOutError (BOOL) --> -
+|--   ERROR_Valve (UDT of udtError_Valve) --> -
+|--   eno (BOOL) --> -
+|--|--fbValve_Solenoid FB110 (VlvLiq2)
+|--|--Network number: 2
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   bManualMode --> bInEnable (BOOL)
+|--|--   - --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_Home --> bInOutHMI (BOOL)
+|--|--   bPB_Home --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_Home
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> en
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   bManualMode --> bInEnable (BOOL)
+|--|--   eno --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_Work --> bInOutHMI (BOOL)
+|--|--   bPB_Work --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_Work
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> en
+|--|--fcHMIBitEnable FC329
+|--|--Inputs: 
+|--|--   false --> bInToggle (BOOL)
+|--|--   false --> bInLatch (BOOL)
+|--|--   HMI_ValveControl.bError --> bInEnable (BOOL)
+|--|--   eno --> en (BOOL)
+|--|--   HMI_ValveControl.bPB_ResetError --> bInOutHMI (BOOL)
+|--|--   bPB_ResetError --> bInOutPLC (BOOL)
+|--|--Outputs: 
+|--|--   bOutEnable (BOOL) --> HMI_ValveControl.bPBEN_ResetError
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> -
+|--|--Network number: 3
+|--|--Network number: 4
+|--|--Network number: 6
+|--|--Network number: 7
+|--|--Network number: 8
+|--|--Network number: 9
+|--|--Network number: 10
+|--|--Network number: 11
+|--|--Network number: 12
+|--|--Network number: 13
+|--|--Network number: 14
+|--|--Network number: 15
+|--|--Network number: 16
+|--|--Network number: 18
+|--|--Network number: 19
+|--|--Network number: 20
+|--|--Network number: 21
+|--|--Network number: 22
+|--|--Network number: 23
+|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--Inputs: 
+|--|--   ERROR_Valve.NoHomeFeedback --> bInError01 (BOOL)
+|--|--   ERROR_Valve.NoWorkFeedback --> bInError02 (BOOL)
+|--|--   ERROR_Valve.HomeFeedbackStillActive --> bInError03 (BOOL)
+|--|--   ERROR_Valve.WorkFeedbackStillActive --> bInError04 (BOOL)
+|--|--   bInEstop --> bInError05 (BOOL)
+|--|--   - --> bInError06 (BOOL)
+|--|--   - --> bInError07 (BOOL)
+|--|--   - --> bInError08 (BOOL)
+|--|--   - --> bInError09 (BOOL)
+|--|--   - --> bInError10 (BOOL)
+|--|--   - --> bInError11 (BOOL)
+|--|--   - --> bInError12 (BOOL)
+|--|--   - --> bInError13 (BOOL)
+|--|--   - --> bInError14 (BOOL)
+|--|--   - --> bInError15 (BOOL)
+|--|--   - --> bInError16 (BOOL)
+|--|--   - --> bInError17 (BOOL)
+|--|--   - --> bInError18 (BOOL)
+|--|--   - --> bInError19 (BOOL)
+|--|--   - --> bInError20 (BOOL)
+|--|--   - --> bInError21 (BOOL)
+|--|--   - --> bInError22 (BOOL)
+|--|--   - --> bInError23 (BOOL)
+|--|--   - --> bInError24 (BOOL)
+|--|--   - --> bInError25 (BOOL)
+|--|--   - --> bInError26 (BOOL)
+|--|--   - --> bInError27 (BOOL)
+|--|--   - --> bInError28 (BOOL)
+|--|--   - --> bInError29 (BOOL)
+|--|--   - --> bInError30 (BOOL)
+|--|--   - --> en (BOOL)
+|--|--Outputs: 
+|--|--   bOutErrorExists (BOOL) --> HMI_ValveControl.bError
+|--|--   iOutScrollingErrorNumber (INT) --> HMI_ValveControl.iErrorCode
+|--|--   eno (BOOL) --> -
+|--|--Network number: 24
+|--|--Network number: 25
+|--|--fcSetHMIStatusSimulation FC333
+|--|--Inputs: 
+|--|--   bInEstop --> bInEstop (BOOL)
+|--|--   HMI_ValveControl.bError --> bInError (BOOL)
+|--|--   HMI_ValveControl.bSignalWork --> bInForwardWork (BOOL)
+|--|--   HMI_ValveControl.bSignalHome --> bInReverseHome (BOOL)
+|--|--   HMI_ValveControl.bWorkOn --> bInOnForwardWork (BOOL)
+|--|--   HMI_ValveControl.bHomeOn --> bInOnReverseHome (BOOL)
+|--|--   bInSimulate --> bInSimulate (BOOL)
+|--|--   - --> en (BOOL)
+|--|--Outputs: 
+|--|--   iOutStatus (INT) --> HMI_ValveControl.iStatus
+|--|--   Ret_Val (VOID) --> -
+|--|--   eno (BOOL) --> -
+|--|--Network number: 27
+|--|--Network number: 28
+|--|--Network number: 29
+|--|--Network number: 30
+|--|--Network number: 31
+|--|--Network number: 32
+|--|--Network number: 33
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fcHMIBitEnable FC329
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--fbErrorScroller FB330 (ErrorScroller)
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--Network number: 8
+|--|--|--fcSetHMIStatusSimulation FC333
+|--|--|--Network number: 1
+|--|--|--Network number: 2
+|--|--|--Network number: 3
+|--|--|--Network number: 4
+|--|--|--Network number: 5
+|--|--|--Network number: 6
+|--|--|--Network number: 7
+|--|--|--Network number: 8
+|--Program Logic FB5 (Program Logic_DB DB2)
+|--Network number: 1
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   10 --> iTrueStep (INT)
+|--   0 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 3
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   20 --> iTrueStep (INT)
+|--   11 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 4
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   20 --> iTrueStep (INT)
+|--   11 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 6
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   21 --> iTrueStep (INT)
+|--   20 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 7
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   30 --> iTrueStep (INT)
+|--   21 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 9
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   31 --> iTrueStep (INT)
+|--   30 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 10
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   40 --> iTrueStep (INT)
+|--   31 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 12
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   41 --> iTrueStep (INT)
+|--   40 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 13
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   50 --> iTrueStep (INT)
+|--   41 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 15
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   51 --> iTrueStep (INT)
+|--   50 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 16
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   60 --> iTrueStep (INT)
+|--   51 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 18
+|--fcStepChooser FC185
+|--Inputs: 
+|--   - --> bCondition (BOOL)
+|--   0 --> iTrueStep (INT)
+|--   60 --> iFalseStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   Ret_Val (INT) --> NextStep
+|--   eno (BOOL) --> -
+|--Network number: 20
+|--fbStepSequencer FB185 (StepSeq)
+|--Inputs: 
+|--   CurrentStep --> iInStep (INT)
+|--   NextStep --> iInNextStep (INT)
+|--   StepDone --> bInStepDone (BOOL)
+|--   - --> tInStepDelay (TIME)
+|--   - --> bInStepMode (BOOL)
+|--   - --> bInStepAdvance (BOOL)
+|--   - --> bInit (BOOL)
+|--   - --> iInitStep (INT)
+|--   - --> en (BOOL)
+|--Outputs: 
+|--   bOutEnterEvent (BOOL) --> -
+|--   bOutExitEvent (BOOL) --> -
+|--   bOutPaused (BOOL) --> -
+|--   iOutCurrentStep (INT) --> CurrentStep
+|--   eno (BOOL) --> -
+|--Network number: 22
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fcStepChooser FC185
+|--|--fbStepSequencer FB185 (StepSeq)

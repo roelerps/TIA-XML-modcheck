@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-08-10T09:05:00.3999489Z</Created>
+    <ExportSetting>WithDefaults, WithReadOnly</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Teamcenter Gateway</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Unified SCADA Engineering System</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <CodeModifiedDate ReadOnly="true">2021-07-03T08:38:37.9433229Z</CodeModifiedDate>
+      <CompileDate ReadOnly="true">2021-07-03T08:38:37.9433229Z</CompileDate>
+      <CreationDate ReadOnly="true">2020-02-26T10:04:39.2339296Z</CreationDate>
+      <HandleErrorsWithinBlock ReadOnly="true">false</HandleErrorsWithinBlock>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.0</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Input">
+    <Member Name="bCondition" Datatype="Bool" Accessibility="Public" />
+    <Member Name="iTrueStep" Datatype="Int" Accessibility="Public" />
+    <Member Name="iFalseStep" Datatype="Int" Accessibility="Public" />
+  </Section>
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp">
+    <Member Name="iResult" Datatype="Int" />
+  </Section>
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Int" Accessibility="Public" />
+  </Section>
+</Sections></Interface>
+      <InterfaceModifiedDate ReadOnly="true">2016-08-14T20:38:19.3457853Z</InterfaceModifiedDate>
+      <IsConsistent ReadOnly="true">true</IsConsistent>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <IsKnowHowProtected ReadOnly="true">false</IsKnowHowProtected>
+      <IsWriteProtected ReadOnly="true">false</IsWriteProtected>
+      <LibraryConformanceStatus ReadOnly="true">The object is library-conformant.</LibraryConformanceStatus>
+      <LibraryType ReadOnly="true">fcStepChooser V 3.0.1</LibraryType>
+      <LibraryTypeVersionGuid ReadOnly="true">8b64a3a6-6372-455a-bcc3-1a11207f1451</LibraryTypeVersionGuid>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <ModifiedDate ReadOnly="true">2021-07-03T08:38:37.9433229Z</ModifiedDate>
+      <Name>fcStepChooser</Name>
+      <Number>185</Number>
+      <ParameterModified ReadOnly="true">2016-08-14T20:38:19.3254825Z</ParameterModified>
+      <PLCSimAdvancedSupport ReadOnly="true">true</PLCSimAdvancedSupport>
+      <ProgrammingLanguage>SCL</ProgrammingLanguage>
+      <SetENOAutomatically>true</SetENOAutomatically>
+      <StructureModified ReadOnly="true">2016-08-14T20:38:19.3457853Z</StructureModified>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v3">
+  <NewLine Num="1" UId="21" />
+  <Blank Num="4" UId="22" />
+  <Token Text="IF" UId="23" />
+  <Blank Num="1" UId="24" />
+  <Access Scope="LocalVariable" UId="25">
+    <Symbol UId="26">
+      <Component Name="bCondition" UId="27" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="28" />
+  <Token Text="THEN" UId="29" />
+  <NewLine Num="1" UId="30" />
+  <Blank Num="8" UId="31" />
+  <Access Scope="LocalVariable" UId="32">
+    <Symbol UId="33">
+      <Component Name="iResult" UId="34" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="35" />
+  <Access Scope="LocalVariable" UId="36">
+    <Symbol UId="37">
+      <Component Name="iTrueStep" UId="38" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="39" />
+  <NewLine Num="1" UId="40" />
+  <Blank Num="4" UId="41" />
+  <Token Text="ELSE" UId="42" />
+  <NewLine Num="1" UId="43" />
+  <Blank Num="8" UId="44" />
+  <Access Scope="LocalVariable" UId="45">
+    <Symbol UId="46">
+      <Component Name="iResult" UId="47" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="48" />
+  <Access Scope="LocalVariable" UId="49">
+    <Symbol UId="50">
+      <Component Name="iFalseStep" UId="51" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="52" />
+  <NewLine Num="1" UId="53" />
+  <Blank Num="4" UId="54" />
+  <Token Text="END_IF" UId="55" />
+  <Token Text=";" UId="56" />
+  <NewLine Num="1" UId="57" />
+  <Blank Num="4" UId="58" />
+  <Access Scope="PredefinedVariable" UId="59">
+    <PredefinedVariable Name="ENO" UId="60" />
+  </Access>
+  <Token Text=":=" UId="61" />
+  <Access Scope="LiteralConstant" UId="62">
+    <Constant UId="63">
+      <ConstantType Informative="true" UId="64">Bool</ConstantType>
+      <ConstantValue UId="65">true</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="66" />
+  <NewLine Num="1" UId="67" />
+  <Blank Num="4" UId="68" />
+  <Access Scope="LocalVariable" UId="69">
+    <Symbol UId="70">
+      <Component Name="fcStepChooser" UId="71" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="72" />
+  <Access Scope="LocalVariable" UId="73">
+    <Symbol UId="74">
+      <Component Name="iResult" UId="75" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="76" />
+  <NewLine Num="1" UId="77" />
+</StructuredText></NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

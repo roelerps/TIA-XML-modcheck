@@ -1,0 +1,541 @@
+MODULE fb110(iInMode, bInSignalHome, bInSignalWork, bInEnable, bInCommandWork, bInResetError, bInSimulate, bInEstop)
+VAR
+global : global;
+
+loc : {start, nw1, nw2, nw3, nw4, nw5, nw6, nw7 ,nw8, nw9, nw10, nw11, nw12, nw13, nw14, nw15, nw16, nw17, nw18, nw19, nw20, nw21, nw22, nw23, nw24, nw25, nw26, nw27, nw28, nw29, nw30, nw31, nw32, nw33, end};
+
+output_bOutCommandWork : boolean;
+output_bOutCommandHome : boolean;
+output_bOutActiveHome : boolean;
+output_bOutActiveWork : boolean;
+output_bOutAuto : boolean;
+output_bOutError : boolean;
+
+output_ERROR_Valve_NoHomeFeedback : boolean;
+output_ERROR_Valve_NoWorkFeedback : boolean;
+output_ERROR_Valve_HomeFeedbackStillActive : boolean;
+output_ERROR_Valve_WorkFeedbackStillActive : boolean;
+
+inout_HMI_ValveControl_bPB_Home : boolean;
+inout_HMI_ValveControl_bPBEN_Home : boolean;
+inout_HMI_ValveControl_bPB_Work : boolean;
+inout_HMI_ValveControl_bPBEN_Work : boolean;
+inout_HMI_ValveControl_bError : boolean;
+inout_HMI_ValveControl_bPB_ResetError : boolean;
+inout_HMI_ValveControl_bPBEN_ResetError : boolean;
+inout_HMI_ValveControl_bSignalHome : boolean;
+inout_HMI_ValveControl_bSignalWork : boolean;
+inout_HMI_ValveControl_bInterlock : boolean;
+inout_HMI_ValveControl_bHomeOn : boolean;
+inout_HMI_ValveControl_bWorkOn : boolean;
+inout_HMI_ValveControl_iMode : signed word[16];
+inout_HMI_ValveControl_iStatus : signed word[16];
+
+											  
+
+static_bManualMode : boolean;
+static_bAutoMode : boolean;
+static_bPB_Home : boolean;
+static_bPB_Work : boolean;
+static_bEnableHome : boolean;
+static_bEnableWork : boolean;
+static_bTON_TimeOut : boolean;
+static_bPB_ResetError : boolean;
+static_bReset : boolean;
+static_bNewMode : boolean;
+static_iLastMode : signed word[16];
+
+timer_TON_TimeOut : {0,1,2};
+
+randomModeNr : {0,1,2,3,4,5,6,7,8,9,10};
+
+
+ASSIGN
+
+init(loc) := start;
+
+init(output_bOutCommandWork) := FALSE;
+init(output_bOutCommandHome) := FALSE;
+init(output_bOutActiveHome) := FALSE;
+init(output_bOutActiveWork) := FALSE;
+init(output_bOutAuto) := FALSE;
+init(output_bOutError) := FALSE;
+
+init(output_ERROR_Valve_NoHomeFeedback) := FALSE;
+init(output_ERROR_Valve_NoWorkFeedback) := FALSE;
+init(output_ERROR_Valve_HomeFeedbackStillActive) := FALSE;
+init(output_ERROR_Valve_WorkFeedbackStillActive) := FALSE;
+
+init(inout_HMI_ValveControl_bPB_Home) := FALSE;
+init(inout_HMI_ValveControl_bPBEN_Home) := FALSE;
+init(inout_HMI_ValveControl_bPB_Work) := FALSE;
+init(inout_HMI_ValveControl_bPBEN_Work) := FALSE;
+init(inout_HMI_ValveControl_bError) := FALSE;
+init(inout_HMI_ValveControl_bPB_ResetError) := FALSE;
+init(inout_HMI_ValveControl_bPBEN_ResetError) := FALSE;
+init(inout_HMI_ValveControl_bSignalHome) := FALSE;
+init(inout_HMI_ValveControl_bSignalWork) := FALSE;
+init(inout_HMI_ValveControl_bInterlock) := FALSE;
+init(inout_HMI_ValveControl_bHomeOn) := FALSE;
+init(inout_HMI_ValveControl_bWorkOn) := FALSE;
+init(inout_HMI_ValveControl_iMode) := 0sd16_0;
+init(inout_HMI_ValveControl_iStatus) := 0sd16_0;
+
+												
+
+init(static_bManualMode) := FALSE;
+init(static_bAutoMode) := FALSE;
+init(static_bPB_Home) := FALSE;
+init(static_bPB_Work) := FALSE;
+init(static_bEnableHome) := FALSE;
+init(static_bEnableWork) := FALSE;
+init(static_bTON_TimeOut) := FALSE;
+init(static_bPB_ResetError) := FALSE;
+init(static_bReset) := FALSE;
+init(static_bNewMode) := FALSE;
+init(static_iLastMode) := 0sd16_0;
+
+
+												
+
+next(loc) :=
+	case
+		(loc = start) : nw1;
+		(loc = nw1) : nw2;
+		(loc = nw2) : nw3;
+		(loc = nw3) : nw4;
+		(loc = nw4) : nw5;
+		(loc = nw5) : nw6;
+		(loc = nw6) : nw7;
+		(loc = nw7) : nw8;
+		(loc = nw8) : nw9;
+		(loc = nw9) : nw10;
+		(loc = nw10) : nw11;
+		(loc = nw11) : nw12;
+		(loc = nw12) : nw13;
+		(loc = nw13) : nw14;
+		(loc = nw14) : nw15;
+		(loc = nw15) : nw16;
+		(loc = nw16) : nw17;
+		(loc = nw17) : nw18;
+		(loc = nw18) : nw19;
+		(loc = nw19) : nw20;
+		(loc = nw20) : nw21;
+		(loc = nw21) : nw22;
+		(loc = nw22) : nw23;
+		(loc = nw23) : nw24;
+		(loc = nw24) : nw25;
+		(loc = nw25) : nw26;
+		(loc = nw26) : nw27;
+		(loc = nw27) : nw28;
+		(loc = nw28) : nw29;
+		(loc = nw29) : nw30;
+		(loc = nw30) : nw31;
+		(loc = nw31) : nw32;
+		(loc = nw32) : nw33;
+		(loc = nw33) : end;
+		(loc = end) : start;
+	esac;
+	
+
+next(inout_HMI_ValveControl_bPBEN_Home) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bPBEN_Home;
+	esac;
+next(inout_HMI_ValveControl_bPB_Home) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bPB_Home;
+	esac;
+next(static_bPB_Home) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : static_bPB_Home;
+	esac;
+	
+next(inout_HMI_ValveControl_bPBEN_Work) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bPBEN_Work;
+	esac;
+next(inout_HMI_ValveControl_bPB_Work) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bPB_Work;
+	esac;
+next(static_bPB_Work) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : static_bPB_Work;
+	esac;
+	
+next(inout_HMI_ValveControl_bPBEN_ResetError) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bPBEN_ResetError;
+	esac;
+next(inout_HMI_ValveControl_bPB_ResetError) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bPB_ResetError;
+	esac;
+next(static_bPB_ResetError) :=
+	case	
+		(loc = nw2) : {FALSE, TRUE};
+		TRUE : static_bPB_ResetError;
+	esac;
+	
+	
+	
+	
+	
+	
+next(inout_HMI_ValveControl_bSignalHome) := 
+	case
+		(loc = nw3) : (bInSignalHome & !bInSimulate) | (inout_HMI_ValveControl_bHomeOn & bInSimulate);
+		TRUE : inout_HMI_ValveControl_bSignalHome;
+	esac;
+
+next(inout_HMI_ValveControl_bSignalWork) := 
+	case
+		(loc = nw4) : (bInSignalWork & !bInSimulate) | (inout_HMI_ValveControl_bWorkOn & bInSimulate);
+		TRUE : inout_HMI_ValveControl_bSignalWork;
+	esac;
+
+next(output_ERROR_Valve_NoHomeFeedback) := 
+	case
+		(loc = nw6 & (bInResetError | static_bPB_ResetError) & inout_HMI_ValveControl_bPBEN_ResetError) : FALSE;
+		(loc = nw19) & (!bInEstop & static_bTON_TimeOut & inout_HMI_ValveControl_bHomeOn & !inout_HMI_ValveControl_bSignalHome) : TRUE;
+		TRUE : output_ERROR_Valve_NoHomeFeedback;
+	esac;
+	
+next(output_ERROR_Valve_NoWorkFeedback) := 
+	case
+		(loc = nw6 & (bInResetError | static_bPB_ResetError) & inout_HMI_ValveControl_bPBEN_ResetError) : FALSE;
+		(loc = nw20) & (!bInEstop & static_bTON_TimeOut & inout_HMI_ValveControl_bWorkOn & !inout_HMI_ValveControl_bSignalWork) : TRUE;
+		TRUE : output_ERROR_Valve_NoWorkFeedback;
+	esac;
+		
+next(output_ERROR_Valve_HomeFeedbackStillActive) := 
+	case
+		(loc = nw6 & (bInResetError | static_bPB_ResetError) & inout_HMI_ValveControl_bPBEN_ResetError) : FALSE;
+		(loc = nw21) & (!bInEstop & static_bTON_TimeOut & inout_HMI_ValveControl_bWorkOn & inout_HMI_ValveControl_bSignalHome) : TRUE;
+		TRUE : output_ERROR_Valve_HomeFeedbackStillActive;
+	esac;
+	
+next(output_ERROR_Valve_WorkFeedbackStillActive) := 
+	case
+		(loc = nw6 & (bInResetError | static_bPB_ResetError) & inout_HMI_ValveControl_bPBEN_ResetError) : FALSE;
+		(loc = nw22) & (!bInEstop & static_bTON_TimeOut & inout_HMI_ValveControl_bHomeOn & inout_HMI_ValveControl_bSignalWork) : TRUE;
+		TRUE : output_ERROR_Valve_WorkFeedbackStillActive;
+	esac;
+
+next(static_bReset) := 
+	case
+		(loc = nw6) : ((bInResetError | static_bPB_ResetError) & inout_HMI_ValveControl_bPBEN_ResetError);
+		TRUE : static_bReset;
+	esac;
+	
+next(inout_HMI_ValveControl_iMode) :=
+	case
+		(loc = nw7 & iInMode != global.Modes_Independent) : iInMode;
+		TRUE : inout_HMI_ValveControl_iMode;
+	esac;
+	
+next(static_bNewMode) :=
+	case
+		(loc = nw8) : inout_HMI_ValveControl_iMode != static_iLastMode;
+		TRUE : static_bNewMode;
+	esac;
+
+next(static_iLastMode) := 
+	case	
+		(loc = nw9) : inout_HMI_ValveControl_iMode;
+		TRUE : static_iLastMode;
+	esac;
+
+next(static_bManualMode) :=
+	case	
+		(loc = nw10) : inout_HMI_ValveControl_iMode = global.Modes_Manual & (!bInEstop & !static_bNewMode & bInEnable);
+		TRUE: static_bManualMode;
+	esac;
+	
+next(static_bAutoMode) :=
+	case	
+		(loc = nw10) : inout_HMI_ValveControl_iMode = global.Modes_Auto & (!bInEstop & !static_bNewMode & bInEnable);
+		TRUE: static_bAutoMode;
+	esac;
+	
+next(static_bEnableHome) :=
+	case	
+		(loc = nw11) : !inout_HMI_ValveControl_bError & (static_bManualMode | static_bAutoMode);
+		TRUE: static_bEnableHome;
+	esac;
+	
+next(static_bEnableWork) :=
+	case	
+		(loc = nw11) : !inout_HMI_ValveControl_bError & (static_bManualMode | static_bAutoMode);
+		TRUE: static_bEnableWork;
+	esac;
+
+next(inout_HMI_ValveControl_bHomeOn) :=
+	case	
+		(loc = nw12) & (static_bManualMode & static_bPB_Home & !static_bPB_Work & inout_HMI_ValveControl_bPBEN_Home) | (static_bAutoMode & !bInCommandWork & static_bEnableHome) : TRUE;
+		(loc = nw13) & ((static_bManualMode & static_bPB_Work & !static_bPB_Home & inout_HMI_ValveControl_bPBEN_Work) | (static_bAutoMode & bInCommandWork & static_bEnableWork)) : FALSE;
+		(loc = nw14) & (static_bAutoMode & !static_bEnableHome): FALSE;
+		(loc = nw16) & (!static_bAutoMode & !static_bManualMode): FALSE;
+		TRUE: inout_HMI_ValveControl_bHomeOn;
+	esac;
+
+next(inout_HMI_ValveControl_bWorkOn) :=
+	case	
+		(loc = nw12) & (static_bManualMode & static_bPB_Home & !static_bPB_Work & inout_HMI_ValveControl_bPBEN_Home) | (static_bAutoMode & !bInCommandWork & static_bEnableHome) : FALSE;
+		(loc = nw13) & ((static_bManualMode & static_bPB_Work & !static_bPB_Home & inout_HMI_ValveControl_bPBEN_Work) | (static_bAutoMode & bInCommandWork & static_bEnableWork)) : TRUE;
+		(loc = nw15) & (static_bAutoMode & !static_bEnableWork): FALSE;
+		(loc = nw16) & (!static_bAutoMode & !static_bManualMode): FALSE;
+		TRUE: inout_HMI_ValveControl_bWorkOn;
+	esac;
+
+
+
+next(timer_TON_TimeOut) :=
+	case
+		(loc = nw18) & !(((inout_HMI_ValveControl_bHomeOn & !inout_HMI_ValveControl_bSignalHome) | (inout_HMI_ValveControl_bWorkOn & !inout_HMI_ValveControl_bSignalWork) | (inout_HMI_ValveControl_bSignalHome & inout_HMI_ValveControl_bWorkOn) | (inout_HMI_ValveControl_bSignalWork & inout_HMI_ValveControl_bHomeOn)) & !static_bReset) : 0;
+		(loc = nw18) & (((inout_HMI_ValveControl_bHomeOn & !inout_HMI_ValveControl_bSignalHome) | (inout_HMI_ValveControl_bWorkOn & !inout_HMI_ValveControl_bSignalWork) | (inout_HMI_ValveControl_bSignalHome & inout_HMI_ValveControl_bWorkOn) | (inout_HMI_ValveControl_bSignalWork & inout_HMI_ValveControl_bHomeOn)) & !static_bReset) & (timer_TON_TimeOut < 2) : timer_TON_TimeOut + 1;
+		TRUE : timer_TON_TimeOut;
+	esac;
+	
+next(static_bTON_TimeOut) :=
+	case	
+		(loc = nw18) & (timer_TON_TimeOut < 2) : FALSE;
+		(loc = nw18) & (timer_TON_TimeOut >= 2) : TRUE;
+		TRUE : static_bTON_TimeOut;
+	esac;
+
+next(inout_HMI_ValveControl_bError) :=
+	case	
+		(loc = nw23) : {FALSE, TRUE};
+		TRUE : inout_HMI_ValveControl_bError;
+	esac;
+	
+next(inout_HMI_ValveControl_bInterlock) :=
+	case	
+		(loc = nw24) : !bInEnable;
+		TRUE: inout_HMI_ValveControl_bInterlock;
+	esac;	
+
+
+--network 25
+next(inout_HMI_ValveControl_iStatus) := 
+	case
+		(loc = nw25 & randomModeNr = 0) : swconst(0, 16);
+		(loc = nw25 & randomModeNr = 1) : swconst(1, 16);
+		(loc = nw25 & randomModeNr = 2) : swconst(2, 16);
+		(loc = nw25 & randomModeNr = 3) : swconst(3, 16);
+		(loc = nw25 & randomModeNr = 4) : swconst(4, 16);
+		(loc = nw25 & randomModeNr = 5) : swconst(5, 16);
+		(loc = nw25 & randomModeNr = 6) : swconst(6, 16);
+		(loc = nw25 & randomModeNr = 7) : swconst(7, 16);
+		(loc = nw25 & randomModeNr = 8) : swconst(8, 16);
+		(loc = nw25 & randomModeNr = 9) : swconst(9, 16);
+		(loc = nw25 & randomModeNr = 10) : swconst(10, 16);
+		TRUE : inout_HMI_ValveControl_iStatus;
+	esac;
+
+
+
+
+next(output_bOutCommandHome) :=
+	case	
+		(loc = nw27) : (inout_HMI_ValveControl_bHomeOn & !bInSimulate);
+		TRUE: output_bOutCommandHome;
+	esac;	
+
+next(output_bOutCommandWork) :=
+	case	
+		(loc = nw28) : (inout_HMI_ValveControl_bWorkOn & !bInSimulate);
+		TRUE: output_bOutCommandWork;
+	esac;	
+
+next(output_bOutActiveHome) :=
+	case	
+		(loc = nw29) : (inout_HMI_ValveControl_bHomeOn & inout_HMI_ValveControl_bSignalHome);
+		TRUE: output_bOutActiveHome;
+	esac;	
+
+next(output_bOutActiveWork) :=
+	case	
+		(loc = nw30) : (inout_HMI_ValveControl_bWorkOn & inout_HMI_ValveControl_bSignalWork);
+		TRUE: output_bOutActiveWork;
+	esac;
+
+next(output_bOutAuto) :=
+	case	
+		(loc = nw31) : (inout_HMI_ValveControl_iMode = global.Modes_Auto);
+		TRUE: output_bOutAuto;
+	esac;
+
+next(output_bOutError) :=
+	case	
+		(loc = nw32) : (inout_HMI_ValveControl_bError);
+		TRUE: output_bOutError;
+	esac;
+
+
+
+
+
+MODULE global
+DEFINE
+Modes_Independent := 0sd16_10;
+Modes_Manual := 0sd16_2;
+Modes_Auto := 0sd16_1;
+
+
+MODULE main
+VAR
+iInMode : signed word[16];
+bInSignalHome : boolean;
+bInSignalWork : boolean;
+bInEnable : boolean;
+bInCommandWork : boolean;
+bInResetError : boolean;
+bInSimulate : boolean;
+bInEstop : boolean;
+TestVlv : fb110(iInMode, bInSignalHome, bInSignalWork, bInEnable, bInCommandWork, bInResetError, bInSimulate, bInEstop);
+randomModeNr : {0,1,2,10};
+
+ASSIGN
+init(iInMode) := 0sd16_1;
+init(bInSignalHome) := FALSE;
+init(bInSignalWork) := FALSE;
+init(bInEnable) := FALSE;
+init(bInCommandWork) := FALSE;
+init(bInResetError) := FALSE;
+init(bInSimulate) := FALSE;
+init(bInEstop) := FALSE;
+
+next(iInMode) := 
+	case
+		(TestVlv.loc = end & randomModeNr = 0) : swconst(0, 16);
+		(TestVlv.loc = end & randomModeNr = 1) : swconst(1, 16);
+		(TestVlv.loc = end & randomModeNr = 2) : swconst(2, 16);
+		(TestVlv.loc = end & randomModeNr = 10) : swconst(10, 16);
+		TRUE : iInMode;
+	esac;
+
+next(bInSignalHome) := 
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInSignalHome;
+	esac;
+	
+next(bInSignalWork) := 
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInSignalWork;
+	esac;
+	
+next(bInEnable) := 
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInEnable;
+	esac;
+	
+next(bInCommandWork) := 
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInCommandWork;
+	esac;
+	
+next(bInResetError) := 
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInResetError;
+	esac;
+
+	
+next(bInSimulate) := 	
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInSimulate;
+	esac;
+	
+next(bInEstop) := 
+	case
+		(TestVlv.loc = end) : {FALSE, TRUE};
+		TRUE : bInEstop;
+	esac;
+
+
+-- Basic reachability
+SPEC AG AF (TestVlv.loc = end)
+LTLSPEC G F (TestVlv.loc = end)
+SPEC AF (TestVlv.loc = end)
+LTLSPEC F (TestVlv.loc = end)
+SPEC AG (TestVlv.loc = end -> AX (TestVlv.loc = start))
+LTLSPEC G (TestVlv.loc = end -> X (TestVlv.loc = start))
+
+-- Basic liveness
+SPEC EF (TestVlv.loc = end & TestVlv.output_bOutError)
+SPEC EF (TestVlv.loc = end & TestVlv.static_bTON_TimeOut)
+SPEC EF (TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback)
+SPEC EF (TestVlv.loc = end & TestVlv.output_bOutCommandWork)
+SPEC EF (TestVlv.loc = end & TestVlv.output_bOutCommandHome)
+
+-- Functionality
+SPEC AG (TestVlv.loc = end -> !(TestVlv.output_bOutCommandHome & TestVlv.output_bOutCommandWork))
+LTLSPEC G (TestVlv.loc = end -> !(TestVlv.output_bOutCommandHome & TestVlv.output_bOutCommandWork))
+SPEC AG ((TestVlv.loc = end & !bInEstop & bInEnable & bInCommandWork & !bInSimulate & iInMode = 0sd16_1 & !TestVlv.output_bOutError) -> EF TestVlv.output_bOutCommandWork)
+	--LTLSPEC G ((TestVlv.loc = end & !bInEstop & bInEnable & bInCommandWork & !bInSimulate & iInMode = 0sd16_1 & !TestVlv.output_bOutError & !bInSignalHome) -> F TestVlv.output_bOutCommandWork)
+SPEC AG ((TestVlv.loc = end & !bInEstop & bInEnable & !bInCommandWork & !bInSimulate & iInMode = 0sd16_1 & !TestVlv.output_bOutError) -> EF TestVlv.output_bOutCommandHome)
+	--LTLSPEC G ((TestVlv.loc = end & !bInEstop & bInEnable & !bInCommandWork & !bInSimulate & iInMode = 0sd16_1 & !TestVlv.output_bOutError & !bInSignalWork) -> F TestVlv.output_bOutCommandHome)
+SPEC AG ((TestVlv.loc = end & bInCommandWork & iInMode = 0sd16_1) -> !TestVlv.output_bOutCommandHome)
+LTLSPEC G ((TestVlv.loc = end & bInCommandWork & iInMode = 0sd16_1) -> !TestVlv.output_bOutCommandHome)
+SPEC AG ((TestVlv.loc = end & !bInCommandWork & iInMode = 0sd16_1) -> !TestVlv.output_bOutCommandWork)
+LTLSPEC G ((TestVlv.loc = end & !bInCommandWork & iInMode = 0sd16_1) -> !TestVlv.output_bOutCommandWork)
+SPEC AG (TestVlv.loc = end & bInEstop -> (!TestVlv.output_bOutCommandHome & !TestVlv.output_bOutCommandWork))
+LTLSPEC G (TestVlv.loc = end & bInEstop -> (!TestVlv.output_bOutCommandHome & !TestVlv.output_bOutCommandWork))
+
+--testing:
+SPEC AG ((TestVlv.loc = end & TestVlv.output_bOutActiveHome & TestVlv.timer_TON_TimeOut=0 & !bInSimulate & !TestVlv.static_bReset) -> AF(bInSignalHome))
+LTLSPEC G ((TestVlv.loc = end & TestVlv.output_bOutActiveHome & TestVlv.timer_TON_TimeOut=0 & !bInSimulate & !TestVlv.static_bReset) -> F(bInSignalHome))
+SPEC AG ((TestVlv.loc = end & TestVlv.output_bOutActiveWork & TestVlv.timer_TON_TimeOut=0 & !bInSimulate & !TestVlv.static_bReset) -> AF(bInSignalWork))
+LTLSPEC G ((TestVlv.loc = end & TestVlv.output_bOutActiveWork & TestVlv.timer_TON_TimeOut=0 & !bInSimulate & !TestVlv.static_bReset) -> F(bInSignalWork))
+SPEC AG (TestVlv.loc = end -> !(TestVlv.output_bOutActiveHome & TestVlv.output_bOutActiveWork))
+LTLSPEC G (TestVlv.loc = end -> !(TestVlv.output_bOutActiveHome & TestVlv.output_bOutActiveWork))
+SPEC AG ((TestVlv.loc = end & TestVlv.output_bOutCommandWork & iInMode = 0sd16_1) -> bInCommandWork)
+LTLSPEC G ((TestVlv.loc = end & TestVlv.output_bOutCommandWork & iInMode = 0sd16_1) -> bInCommandWork)
+SPEC AG ((TestVlv.loc = end & TestVlv.output_bOutCommandHome & iInMode = 0sd16_1) -> !bInCommandWork)
+LTLSPEC G ((TestVlv.loc = end & TestVlv.output_bOutCommandHome & iInMode = 0sd16_1) -> !bInCommandWork)
+
+
+-- Test compositional Model Checking (FB330)
+--SPEC AG ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback) -> (TestVlv.inout_HMI_ValveControl_bError)) -> AG ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback & TestVlv.output_bOutAuto) -> TestVlv.output_bOutError)
+INVAR ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback) -> (TestVlv.inout_HMI_ValveControl_bError))
+SPEC AG ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback & TestVlv.output_bOutAuto) -> TestVlv.output_bOutError)
+
+--SPEC AG ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback) -> (TestVlv.inout_HMI_ValveControl_bError)) -> AG ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback & TestVlv.output_bOutAuto) -> AF (!TestVlv.output_bOutCommandHome & !TestVlv.output_bOutCommandWork))
+--INVAR SAME AS ABOVE!!!
+SPEC AG ((TestVlv.loc = end & TestVlv.output_ERROR_Valve_NoHomeFeedback & TestVlv.output_bOutAuto) -> AF (!TestVlv.output_bOutCommandHome & !TestVlv.output_bOutCommandWork))
+
+--SPEC AG ((TestVlv.loc = end & (TestVlv.output_ERROR_Valve_HomeFeedbackStillActive | TestVlv.output_ERROR_Valve_WorkFeedbackStillActive)) -> TestVlv.inout_HMI_ValveControl_bError) -> AG((TestVlv.loc = end & TestVlv.output_bOutActiveHome & !TestVlv.output_bOutError & !bInSimulate & !TestVlv.static_bReset & TestVlv.timer_TON_TimeOut < 1) -> (bInSignalHome & !bInSignalWork))
+INVAR ((TestVlv.loc = end & (TestVlv.output_ERROR_Valve_HomeFeedbackStillActive | TestVlv.output_ERROR_Valve_WorkFeedbackStillActive)) -> TestVlv.inout_HMI_ValveControl_bError)
+SPEC AG((TestVlv.loc = end & TestVlv.output_bOutActiveHome & !TestVlv.output_bOutError & !bInSimulate & !TestVlv.static_bReset & TestVlv.timer_TON_TimeOut < 1) -> (bInSignalHome & !bInSignalWork))
+
+-- Test compositional Model Checking (FC329)
+--SPEC AG ((TestVlv.loc = end & TestVlv.static_bManualMode) -> (TestVlv.inout_HMI_ValveControl_bPBEN_Home))  -> AG ((TestVlv.loc = end & TestVlv.static_bManualMode & TestVlv.static_bPB_Home & !TestVlv.static_bPB_Work & !bInSimulate & !TestVlv.output_bOutError & !bInSignalHome) -> TestVlv.output_bOutCommandHome)
+INVAR ((TestVlv.loc = end & TestVlv.static_bManualMode) -> (TestVlv.inout_HMI_ValveControl_bPBEN_Home))
+SPEC AG ((TestVlv.loc = end & TestVlv.static_bManualMode & TestVlv.static_bPB_Home & !TestVlv.static_bPB_Work & !bInSimulate & !TestVlv.output_bOutError & !bInSignalHome) -> TestVlv.output_bOutCommandHome)
+
+-- Test compositional Model Checking (FC333)
+--SPEC AG (TestVlv.loc=end & ((bInEstop) -> (TestVlv.inout_HMI_ValveControl_iStatus = 0sd16_1))) -> AG((TestVlv.loc = end & bInEstop) -> (TestVlv.inout_HMI_ValveControl_iStatus = 0sd16_1))
+INVAR (TestVlv.loc=end & bInEstop) -> (TestVlv.inout_HMI_ValveControl_iStatus = 0sd16_1)
+SPEC AG((TestVlv.loc = end & bInEstop) -> (TestVlv.inout_HMI_ValveControl_iStatus = 0sd16_1))
+
+
+
+
+
+

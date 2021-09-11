@@ -1,0 +1,51 @@
+OrganizationBlock: OB1 (Main)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Main.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB2 (Valve Liquid 1)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Valve Liquid 1.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB3 (Valve Liquid 2)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Valve Liquid 2.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB4 (Valve Drain)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Valve Drain.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB5 (Program Logic)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Program Logic.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB6 (TestExecOrd2)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\TestBlocks\TestExecOrd2.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB110 (fbValve_Solenoid)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Open Library V15\Devices\fbValve_Solenoid.xml
+ProgrammingLanguage: FBD
+FunctionBlock: FB185 (fbStepSequencer)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Open Library V15\Process\fbStepSequencer.xml
+ProgrammingLanguage: SCL
+FunctionBlock: FB330 (fbErrorScroller)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Open Library V15\Resources\HMI\fbErrorScroller.xml
+ProgrammingLanguage: FBD
+Function: FC2 (TestExecOrd)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\TestBlocks\TestExecOrd.xml
+ProgrammingLanguage: FBD
+Function: FC185 (fcStepChooser)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Open Library V15\Process\fcStepChooser.xml
+ProgrammingLanguage: SCL
+Function: FC329 (fcHMIBitEnable)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Open Library V15\Resources\HMI\fcHMIBitEnable.xml
+ProgrammingLanguage: FBD
+Function: FC333 (fcSetHMIStatusSimulation)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Open Library V15\Resources\HMI\fcSetHMIStatusSimulation.xml
+ProgrammingLanguage: FBD
+GlobalDB: DB3 (DB_HMI)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\DB_HMI.xml
+GlobalDB: DB4 (DB_ProgramLogic)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\DB_ProgramLogic.xml
+InstanceDB: iDB2 (Program Logic_DB)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Program Logic_DB.xml
+InstanceDB: iDB7 (Valve Drain_DB)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Valve Drain_DB.xml
+InstanceDB: iDB8 (Valve Liquid 1_DB)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Valve Liquid 1_DB.xml
+InstanceDB: iDB9 (Valve Liquid 2_DB)
+XMLFileLocation: C:\Users\Roel\Documents\GitHub\ou-thesis\tool\parsexml\xmls\Valve Liquid 2_DB.xml

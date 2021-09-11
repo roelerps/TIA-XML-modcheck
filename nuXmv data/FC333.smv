@@ -1,0 +1,175 @@
+MODULE fc333(bInEstop, bInError, bInForwardWork, bInReverseHome, bInOnForwardWork, bInOnReverseHome, bInSimulate)
+VAR
+
+global : global;
+
+loc : {start, nw1, nw2, nw3, nw4, nw5, nw6, nw7, nw8, end};
+
+output_iOutStatus : signed word[16];
+
+
+ASSIGN
+
+init(loc) := start;
+
+init(output_iOutStatus) := 0sd16_0;
+
+next(loc) :=
+	case
+		(loc = start) : nw1;
+		(loc = nw1) : nw2;
+		(loc = nw2) : nw3;
+		(loc = nw3) : nw4;
+		(loc = nw4) : nw5;
+		(loc = nw5) : nw6;
+		(loc = nw6) : nw7;
+		(loc = nw7) : nw8;
+		(loc = nw8) : end;
+		(loc = end) : start;
+	esac;
+	
+-- network 1
+next(output_iOutStatus) :=
+	case	
+		
+		(loc = nw1) & (bInSimulate & bInOnReverseHome): global.HMI_Status_SimulatedOnReverseHome;
+		(loc = nw1) & (!bInSimulate & bInOnReverseHome): global.HMI_Status_OnReverseHome;
+		(loc = nw2) & (bInSimulate & bInOnForwardWork): global.HMI_Status_SimulatedOnForwardWork;
+		(loc = nw2) & (!bInSimulate & bInOnForwardWork): global.HMI_Status_OnForwardWork;
+		(loc = nw3) & (bInSimulate & bInReverseHome): global.HMI_Status_SimulatedReverseHome;
+		(loc = nw3) & (!bInSimulate & bInReverseHome): global.HMI_Status_ReverseHome;
+		(loc = nw4) & (bInSimulate & bInForwardWork): global.HMI_Status_SimulatedForwardWork;
+		(loc = nw4) & (!bInSimulate & bInForwardWork): global.HMI_Status_ForwardWork;
+		(loc = nw5) & (bInError) : global.HMI_Status_Error;
+		(loc = nw6) & (bInEstop) : global.HMI_Status_Estop;
+		(loc = nw7) & (!bInEstop & !bInError & !bInForwardWork & !bInReverseHome & !bInOnForwardWork & !bInOnReverseHome) : global.HMI_Status_Stopped;		
+		TRUE : output_iOutStatus;
+	esac;
+	
+
+
+MODULE global
+DEFINE
+HMI_Status_SimulatedOnReverseHome := 0sd16_10;
+HMI_Status_OnReverseHome := 0sd16_6;
+HMI_Status_SimulatedOnForwardWork := 0sd16_9;
+HMI_Status_OnForwardWork := 0sd16_5;
+HMI_Status_SimulatedReverseHome := 0sd16_8;
+HMI_Status_ReverseHome := 0sd16_4;
+HMI_Status_SimulatedForwardWork := 0sd16_7;
+HMI_Status_ForwardWork := 0sd16_3;
+HMI_Status_Error := 0sd16_2;
+HMI_Status_Estop := 0sd16_1;
+HMI_Status_Stopped := 0sd16_0;
+
+
+
+
+
+MODULE main
+VAR
+bInEstop : boolean;
+bInError : boolean;
+bInForwardWork : boolean;
+bInReverseHome : boolean;
+bInOnForwardWork : boolean;
+bInOnReverseHome : boolean;
+bInSimulate : boolean;
+
+Test_FC333 : fc333(bInEstop, bInError, bInForwardWork, bInReverseHome, bInOnForwardWork, bInOnReverseHome, bInSimulate);
+
+ASSIGN
+init(bInEstop) := FALSE;
+init(bInError) := FALSE;
+init(bInForwardWork) := FALSE;
+init(bInReverseHome) := FALSE;
+init(bInOnForwardWork) := FALSE;
+init(bInOnReverseHome) := FALSE;
+init(bInSimulate) := FALSE;
+
+
+next(bInEstop) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInEstop;
+	esac;
+	
+next(bInError) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInError;
+	esac;
+
+next(bInForwardWork) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInForwardWork;
+	esac;
+	
+next(bInReverseHome) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInReverseHome;
+	esac;
+	
+next(bInOnForwardWork) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInOnForwardWork;
+	esac;
+
+next(bInOnReverseHome) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInOnReverseHome;
+	esac;
+
+next(bInSimulate) := 
+	case
+		(Test_FC333.loc = end) : {FALSE, TRUE};
+		TRUE : bInSimulate;
+	esac;
+	
+
+-- Basic reachability
+SPEC AG AF (Test_FC333.loc = end)
+LTLSPEC G F (Test_FC333.loc = end)
+SPEC AF (Test_FC333.loc = end)
+LTLSPEC F (Test_FC333.loc = end)
+SPEC AG (Test_FC333.loc = end -> AX (Test_FC333.loc = start))
+LTLSPEC G (Test_FC333.loc = end -> X (Test_FC333.loc = start))
+
+-- Basic liveness
+SPEC EF (Test_FC333.loc = end & (Test_FC333.output_iOutStatus = 0sd16_0))
+LTLSPEC F (Test_FC333.loc = end & (Test_FC333.output_iOutStatus = 0sd16_0))
+SPEC EF (Test_FC333.loc = end & !(Test_FC333.output_iOutStatus = 0sd16_0))
+LTLSPEC F ((Test_FC333.loc = end & Test_FC333.bInEstop) -> !(Test_FC333.output_iOutStatus = 0sd16_0))
+
+-- Functionality
+SPEC AG ((Test_FC333.loc = end & bInEstop) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_Estop))
+LTLSPEC G ((Test_FC333.loc = end & bInEstop) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_Estop))
+SPEC AG ((Test_FC333.loc = end & !bInEstop & bInError) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_Error))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & bInError) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_Error))
+
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInForwardWork & !bInOnForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedForwardWork))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInForwardWork & !bInOnForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedForwardWork))
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInForwardWork & !bInOnForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_ForwardWork))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInForwardWork & !bInOnForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_ForwardWork))
+
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInOnForwardWork & !bInForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedOnForwardWork))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInOnForwardWork & !bInForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedOnForwardWork))
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInOnForwardWork & !bInForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_OnForwardWork))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInOnForwardWork & !bInForwardWork & !bInOnReverseHome & !bInReverseHome) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_OnForwardWork))
+
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInReverseHome & !bInOnReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedReverseHome))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInReverseHome & !bInOnReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedReverseHome))
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInReverseHome & !bInOnReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_ReverseHome))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInReverseHome & !bInOnReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_ReverseHome))
+
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInOnReverseHome & !bInReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedOnReverseHome))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & bInSimulate & bInOnReverseHome & !bInReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_SimulatedOnReverseHome))
+SPEC AG ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInOnReverseHome & !bInReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_OnReverseHome))
+LTLSPEC G ((Test_FC333.loc = end & !bInEstop & !bInError & !bInSimulate & bInOnReverseHome & !bInReverseHome & !bInForwardWork & !bInOnForwardWork) -> (Test_FC333.output_iOutStatus = Test_FC333.global.HMI_Status_OnReverseHome))
+
+
+

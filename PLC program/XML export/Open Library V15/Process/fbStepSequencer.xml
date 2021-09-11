@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2021-08-10T09:05:00.3691749Z</Created>
+    <ExportSetting>WithDefaults, WithReadOnly</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Teamcenter Gateway</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>SINAMICS Startdrive Advanced</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G130, G150, S120, S150, SINAMICS MV, S210</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>SINAMICS Startdrive G110M, G120, G120C, G120D, G120P</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Unified SCADA Engineering System</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FB ID="0">
+    <AttributeList>
+      <AutoNumber>false</AutoNumber>
+      <CodeModifiedDate ReadOnly="true">2021-07-03T08:38:43.5995384Z</CodeModifiedDate>
+      <CompileDate ReadOnly="true">2021-07-03T08:38:43.5995384Z</CompileDate>
+      <CreationDate ReadOnly="true">2020-02-26T09:46:55.060709Z</CreationDate>
+      <DownloadWithoutReinit ReadOnly="true">false</DownloadWithoutReinit>
+      <HandleErrorsWithinBlock ReadOnly="true">false</HandleErrorsWithinBlock>
+      <HeaderAuthor>Boris</HeaderAuthor>
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>4.0</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Input">
+    <Member Name="iInStep" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Constant: current step required for the FB to run</MultiLanguageText></Comment></Member>
+    <Member Name="iInNextStep" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Next step to go to if step is done</MultiLanguageText></Comment></Member>
+    <Member Name="bInStepDone" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">if step done logic is true, then we move from IN_STEP to NEXT_STEP</MultiLanguageText></Comment></Member>
+    <Member Name="tInStepDelay" Datatype="Time" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">After the step done input is true, we wait for x seconds before moving to next</MultiLanguageText></Comment></Member>
+    <Member Name="bInStepMode" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Pause sequence at completion of current step</MultiLanguageText></Comment></Member>
+    <Member Name="bInStepAdvance" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">If paused, trigger next step</MultiLanguageText></Comment></Member>
+    <Member Name="bInit" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="iInitStep" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="bOutEnterEvent" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="bOutExitEvent" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="bOutPaused" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Sequence is currently paused.</MultiLanguageText></Comment></Member>
+    <Member Name="iOutCurrentStep" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">output current step</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="InOut" />
+  <Section Name="Static">
+    <Member Name="TON_StepDelay" Datatype="TON_TIME" Version="1.0" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">used to delay moving to the next step.</MultiLanguageText></Comment><Sections><Section Name="None"><Member Name="PT" Datatype="Time" /><Member Name="ET" Datatype="Time" /><Member Name="IN" Datatype="Bool" /><Member Name="Q" Datatype="Bool" /></Section></Sections></Member>
+    <Member Name="iCurrentStep" Datatype="Int" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">Current step of the sequencer</MultiLanguageText></Comment></Member>
+    <Member Name="bAlreadyInThisStep" Datatype="Bool" Remanence="NonRetain" Accessibility="Public"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Temp">
+    <Member Name="bNoStepDelay" Datatype="Bool"><AttributeList><BooleanAttribute Name="UserVisible" Informative="true" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="UserReadOnly" Informative="true" SystemDefined="true">false</BooleanAttribute><BooleanAttribute Name="UserDeletable" Informative="true" SystemDefined="true">true</BooleanAttribute></AttributeList><Comment><MultiLanguageText Lang="en-US">step delay disabled</MultiLanguageText></Comment></Member>
+  </Section>
+  <Section Name="Constant" />
+</Sections></Interface>
+      <InterfaceModifiedDate ReadOnly="true">2017-09-27T20:53:33.4400806Z</InterfaceModifiedDate>
+      <IsConsistent ReadOnly="true">true</IsConsistent>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <IsKnowHowProtected ReadOnly="true">false</IsKnowHowProtected>
+      <ISMultiInstanceCapable ReadOnly="true">true</ISMultiInstanceCapable>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtected ReadOnly="true">false</IsWriteProtected>
+      <LibraryConformanceStatus ReadOnly="true">The object is library-conformant.</LibraryConformanceStatus>
+      <LibraryType ReadOnly="true">fbStepSequencer V 3.0.1</LibraryType>
+      <LibraryTypeVersionGuid ReadOnly="true">beea64d7-3359-4773-b63d-f289c4512550</LibraryTypeVersionGuid>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <ModifiedDate ReadOnly="true">2021-07-03T08:38:43.5995384Z</ModifiedDate>
+      <Name>fbStepSequencer</Name>
+      <Number>185</Number>
+      <ParameterModified ReadOnly="true">2016-08-14T20:38:38.9589289Z</ParameterModified>
+      <PLCSimAdvancedSupport ReadOnly="true">true</PLCSimAdvancedSupport>
+      <ProgrammingLanguage>SCL</ProgrammingLanguage>
+      <SetENOAutomatically>true</SetENOAutomatically>
+      <StructureModified ReadOnly="true">2016-08-14T20:38:38.9704141Z</StructureModified>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Modified by Ken Brey 2010-08-25 KLB.  Added Initialization inputs and logic.
+Modified by Ken Brey 2006-08-08 Removed initialization of inputs.  Initializing inputs doesn't do anything.  The input value if un-wired will be the last value
+                                  set for that input in a different call.  The initialized value in the declaration section does not set it back to default
+                                  if unwired.  Allways supply values for all inputs.
+Modified by Tim Jager 2005-12-13 no block Id in error message
+Modified by Boris: branched -> simplified version, no errors, no timeout; still have to use static memory for TON/CurStep (might be fixed later using in/out structure)
+Modified by Nick Shea:  2012-03-30 Re-instated step mode
+</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v3">
+  <NewLine Num="2" UId="21" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="22">
+    <Text UId="23">*****************************************************************************************</Text>
+  </LineComment>
+  <NewLine Num="1" UId="24" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="25">
+    <Text UId="26"> INSTRUCTION SECTION</Text>
+  </LineComment>
+  <NewLine Num="1" UId="27" />
+  <Access Scope="PredefinedVariable" UId="28">
+    <PredefinedVariable Name="ENO" UId="29" />
+  </Access>
+  <Token Text=":=" UId="30" />
+  <Access Scope="LiteralConstant" UId="31">
+    <Constant UId="32">
+      <ConstantType Informative="true" UId="33">Bool</ConstantType>
+      <ConstantValue UId="34">false</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="35" />
+  <Blank Num="1" UId="36" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="37">
+    <Text UId="38">init variables</Text>
+  </LineComment>
+  <NewLine Num="1" UId="39" />
+  <Access Scope="LocalVariable" UId="40">
+    <Symbol UId="41">
+      <Component Name="bOutExitEvent" UId="42" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="43" />
+  <Token Text=":=" UId="44" />
+  <Access Scope="LiteralConstant" UId="45">
+    <Constant UId="46">
+      <ConstantType Informative="true" UId="47">Bool</ConstantType>
+      <ConstantValue UId="48">false</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="49" />
+  <NewLine Num="1" UId="50" />
+  <Access Scope="LocalVariable" UId="51">
+    <Symbol UId="52">
+      <Component Name="bOutEnterEvent" UId="53" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="54" />
+  <Access Scope="LiteralConstant" UId="55">
+    <Constant UId="56">
+      <ConstantType Informative="true" UId="57">Bool</ConstantType>
+      <ConstantValue UId="58">false</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="59" />
+  <NewLine Num="2" UId="60" />
+  <Token Text="IF" UId="61" />
+  <Blank Num="1" UId="62" />
+  <Token Text="(" UId="63" />
+  <Access Scope="LocalVariable" UId="64">
+    <Symbol UId="65">
+      <Component Name="iInStep" UId="66" />
+    </Symbol>
+  </Access>
+  <Token Text="=" UId="67" />
+  <Access Scope="LocalVariable" UId="68">
+    <Symbol UId="69">
+      <Component Name="iCurrentStep" UId="70" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="71" />
+  <Blank Num="1" UId="72" />
+  <Token Text="THEN" UId="73" />
+  <NewLine Num="1" UId="74" />
+  <Blank Num="4" UId="75" />
+  <Token Text="IF" UId="76" />
+  <Blank Num="1" UId="77" />
+  <Token Text="NOT" UId="78" />
+  <Blank Num="1" UId="79" />
+  <Access Scope="LocalVariable" UId="80">
+    <Symbol UId="81">
+      <Component Name="bAlreadyInThisStep" UId="82" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="83" />
+  <Token Text="THEN" UId="84" />
+  <NewLine Num="1" UId="85" />
+  <Blank Num="8" UId="86" />
+  <Access Scope="LocalVariable" UId="87">
+    <Symbol UId="88">
+      <Component Name="bOutEnterEvent" UId="89" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="90" />
+  <Access Scope="LiteralConstant" UId="91">
+    <Constant UId="92">
+      <ConstantType Informative="true" UId="93">Bool</ConstantType>
+      <ConstantValue UId="94">true</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="95" />
+  <NewLine Num="1" UId="96" />
+  <Blank Num="8" UId="97" />
+  <Access Scope="LocalVariable" UId="98">
+    <Symbol UId="99">
+      <Component Name="bAlreadyInThisStep" UId="100" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="101" />
+  <Access Scope="LiteralConstant" UId="102">
+    <Constant UId="103">
+      <ConstantType Informative="true" UId="104">Bool</ConstantType>
+      <ConstantValue UId="105">true</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="106" />
+  <NewLine Num="1" UId="107" />
+  <Blank Num="4" UId="108" />
+  <Token Text="END_IF" UId="109" />
+  <Token Text=";" UId="110" />
+  <NewLine Num="1" UId="111" />
+  <Blank Num="4" UId="112" />
+  <Token Text="IF" UId="113" />
+  <Blank Num="1" UId="114" />
+  <Access Scope="LocalVariable" UId="115">
+    <Symbol UId="116">
+      <Component Name="bInStepDone" UId="117" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="118" />
+  <Token Text="THEN" UId="119" />
+  <NewLine Num="1" UId="120" />
+  <Blank Num="8" UId="121" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="122">
+    <Text UId="123">Run Step done Timer</Text>
+  </LineComment>
+  <NewLine Num="1" UId="124" />
+  <Blank Num="8" UId="125" />
+  <Access Scope="LocalVariable" UId="126">
+    <Symbol UId="127">
+      <Component Name="TON_StepDelay" UId="128" />
+    </Symbol>
+  </Access>
+  <Access Scope="Call" UId="129">
+    <Instruction UId="130">
+      <Token Text="(" UId="131" />
+      <Parameter Name="IN" UId="132">
+        <Token Text=":=" UId="133" />
+        <Token Text="(" UId="134" />
+        <Access Scope="LiteralConstant" UId="135">
+          <Constant UId="136">
+            <ConstantType Informative="true" UId="137">Bool</ConstantType>
+            <ConstantValue UId="138">TRUE</ConstantValue>
+            <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+          </Constant>
+        </Access>
+        <Token Text=")" UId="139" />
+      </Parameter>
+      <Token Text="," UId="140" />
+      <Parameter Name="PT" UId="141">
+        <Token Text=":=" UId="142" />
+        <Access Scope="LocalVariable" UId="143">
+          <Symbol UId="144">
+            <Component Name="tInStepDelay" UId="145" />
+          </Symbol>
+        </Access>
+      </Parameter>
+      <Token Text=")" UId="146" />
+    </Instruction>
+  </Access>
+  <Token Text=";" UId="147" />
+  <NewLine Num="1" UId="148" />
+  <Blank Num="8" UId="149" />
+  <NewLine Num="1" UId="150" />
+  <Blank Num="8" UId="151" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="152">
+    <Text UId="153">check if we are using a step delay</Text>
+  </LineComment>
+  <NewLine Num="1" UId="154" />
+  <Blank Num="8" UId="155" />
+  <Access Scope="LocalVariable" UId="156">
+    <Symbol UId="157">
+      <Component Name="bNoStepDelay" UId="158" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="159" />
+  <Blank Num="1" UId="160" />
+  <Token Text="(" UId="161" />
+  <Access Scope="LocalVariable" UId="162">
+    <Symbol UId="163">
+      <Component Name="tInStepDelay" UId="164" />
+    </Symbol>
+  </Access>
+  <Token Text="&lt;=" UId="165" />
+  <Access Scope="TypedConstant" UId="166">
+    <Constant UId="167">
+      <ConstantValue UId="168">T#0MS</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Time</StringAttribute>
+      <StringAttribute Name="FormatFlags" Informative="true">TypeQualifier</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=")" UId="169" />
+  <Token Text=";" UId="170" />
+  <NewLine Num="2" UId="171" />
+  <Blank Num="8" UId="172" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="173">
+    <Text UId="174">We can move to the next step if (STEP_DONE and StepDelay timer complete) </Text>
+  </LineComment>
+  <NewLine Num="1" UId="175" />
+  <Blank Num="8" UId="176" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="177">
+    <Text UId="178">  AND</Text>
+  </LineComment>
+  <NewLine Num="1" UId="179" />
+  <Blank Num="8" UId="180" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="181">
+    <Text UId="182">(we are in step mode and the step advance is true, or if we are not in step mode </Text>
+  </LineComment>
+  <NewLine Num="1" UId="183" />
+  <Blank Num="8" UId="184" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="185">
+    <Text UId="186">  AND</Text>
+  </LineComment>
+  <NewLine Num="1" UId="187" />
+  <Blank Num="8" UId="188" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="189">
+    <Text UId="190">It is not the first scan of this step</Text>
+  </LineComment>
+  <NewLine Num="1" UId="191" />
+  <Blank Num="8" UId="192" />
+  <Token Text="IF" UId="193" />
+  <Blank Num="1" UId="194" />
+  <Token Text="(" UId="195" />
+  <Token Text="(" UId="196" />
+  <Access Scope="LocalVariable" UId="197">
+    <Symbol UId="198">
+      <Component Name="TON_StepDelay" UId="199" />
+      <Token Text="." UId="200" />
+      <Component Name="Q" UId="201" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="202" />
+  <Token Text="OR" UId="203" />
+  <Blank Num="1" UId="204" />
+  <Access Scope="LocalVariable" UId="205">
+    <Symbol UId="206">
+      <Component Name="bNoStepDelay" UId="207" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="208" />
+  <Blank Num="1" UId="209" />
+  <Token Text="AND" UId="210" />
+  <Blank Num="1" UId="211" />
+  <Token Text="(" UId="212" />
+  <Token Text="NOT" UId="213" />
+  <Blank Num="1" UId="214" />
+  <Access Scope="LocalVariable" UId="215">
+    <Symbol UId="216">
+      <Component Name="bInStepMode" UId="217" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="218" />
+  <Token Text="OR" UId="219" />
+  <Blank Num="1" UId="220" />
+  <Token Text="(" UId="221" />
+  <Access Scope="LocalVariable" UId="222">
+    <Symbol UId="223">
+      <Component Name="bInStepMode" UId="224" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="225" />
+  <Token Text="AND" UId="226" />
+  <Blank Num="1" UId="227" />
+  <Access Scope="LocalVariable" UId="228">
+    <Symbol UId="229">
+      <Component Name="bInStepAdvance" UId="230" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="231" />
+  <Token Text=")" UId="232" />
+  <Blank Num="1" UId="233" />
+  <Token Text="AND" UId="234" />
+  <Blank Num="1" UId="235" />
+  <Token Text="NOT" UId="236" />
+  <Blank Num="1" UId="237" />
+  <Access Scope="LocalVariable" UId="238">
+    <Symbol UId="239">
+      <Component Name="bOutEnterEvent" UId="240" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="241" />
+  <Blank Num="1" UId="242" />
+  <Token Text="THEN" UId="243" />
+  <Blank Num="1" UId="244" />
+  <NewLine Num="1" UId="245" />
+  <Blank Num="12" UId="246" />
+  <Access Scope="LocalVariable" UId="247">
+    <Symbol UId="248">
+      <Component Name="iCurrentStep" UId="249" />
+    </Symbol>
+  </Access>
+  <Blank Num="3" UId="250" />
+  <Token Text=":=" UId="251" />
+  <Blank Num="1" UId="252" />
+  <Access Scope="LocalVariable" UId="253">
+    <Symbol UId="254">
+      <Component Name="iInNextStep" UId="255" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="256" />
+  <Blank Num="3" UId="257" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="258">
+    <Text UId="259">move to next step</Text>
+  </LineComment>
+  <NewLine Num="1" UId="260" />
+  <Blank Num="12" UId="261" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="262">
+    <Text UId="263">Reset Step done Timer</Text>
+  </LineComment>
+  <NewLine Num="1" UId="264" />
+  <Blank Num="12" UId="265" />
+  <Access Scope="LocalVariable" UId="266">
+    <Symbol UId="267">
+      <Component Name="TON_StepDelay" UId="268" />
+    </Symbol>
+  </Access>
+  <Access Scope="Call" UId="269">
+    <Instruction UId="270">
+      <Token Text="(" UId="271" />
+      <Parameter Name="IN" UId="272">
+        <Token Text=":=" UId="273" />
+        <Token Text="(" UId="274" />
+        <Access Scope="LiteralConstant" UId="275">
+          <Constant UId="276">
+            <ConstantType Informative="true" UId="277">Bool</ConstantType>
+            <ConstantValue UId="278">false</ConstantValue>
+            <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+          </Constant>
+        </Access>
+        <Token Text=")" UId="279" />
+      </Parameter>
+      <Token Text="," UId="280" />
+      <Parameter Name="PT" UId="281">
+        <Token Text=":=" UId="282" />
+        <Access Scope="LocalVariable" UId="283">
+          <Symbol UId="284">
+            <Component Name="tInStepDelay" UId="285" />
+          </Symbol>
+        </Access>
+      </Parameter>
+      <Token Text=")" UId="286" />
+    </Instruction>
+  </Access>
+  <Token Text=";" UId="287" />
+  <Blank Num="1" UId="288" />
+  <NewLine Num="1" UId="289" />
+  <Blank Num="12" UId="290" />
+  <Access Scope="LocalVariable" UId="291">
+    <Symbol UId="292">
+      <Component Name="bOutExitEvent" UId="293" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="294" />
+  <Access Scope="LiteralConstant" UId="295">
+    <Constant UId="296">
+      <ConstantType Informative="true" UId="297">Bool</ConstantType>
+      <ConstantValue UId="298">true</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="299" />
+  <NewLine Num="1" UId="300" />
+  <Blank Num="12" UId="301" />
+  <Access Scope="LocalVariable" UId="302">
+    <Symbol UId="303">
+      <Component Name="bAlreadyInThisStep" UId="304" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="305" />
+  <Access Scope="LiteralConstant" UId="306">
+    <Constant UId="307">
+      <ConstantType Informative="true" UId="308">Bool</ConstantType>
+      <ConstantValue UId="309">false</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="310" />
+  <NewLine Num="1" UId="311" />
+  <Blank Num="8" UId="312" />
+  <Token Text="END_IF" UId="313" />
+  <Token Text=";" UId="314" />
+  <NewLine Num="1" UId="315" />
+  <Blank Num="4" UId="316" />
+  <Token Text="END_IF" UId="317" />
+  <Token Text=";" UId="318" />
+  <NewLine Num="1" UId="319" />
+  <Blank Num="4" UId="320" />
+  <Access Scope="LocalVariable" UId="321">
+    <Symbol UId="322">
+      <Component Name="bOutPaused" UId="323" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="324" />
+  <Token Text=":=" UId="325" />
+  <Blank Num="1" UId="326" />
+  <Access Scope="LocalVariable" UId="327">
+    <Symbol UId="328">
+      <Component Name="bInStepDone" UId="329" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="330" />
+  <Token Text="AND" UId="331" />
+  <Blank Num="1" UId="332" />
+  <Token Text="(" UId="333" />
+  <Access Scope="LocalVariable" UId="334">
+    <Symbol UId="335">
+      <Component Name="TON_StepDelay" UId="336" />
+      <Token Text="." UId="337" />
+      <Component Name="Q" UId="338" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="339" />
+  <Token Text="OR" UId="340" />
+  <Blank Num="1" UId="341" />
+  <Access Scope="LocalVariable" UId="342">
+    <Symbol UId="343">
+      <Component Name="bNoStepDelay" UId="344" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="345" />
+  <Blank Num="1" UId="346" />
+  <Token Text="AND" UId="347" />
+  <Blank Num="1" UId="348" />
+  <Token Text="(" UId="349" />
+  <Access Scope="LocalVariable" UId="350">
+    <Symbol UId="351">
+      <Component Name="bInStepMode" UId="352" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="353" />
+  <Token Text="AND" UId="354" />
+  <Blank Num="1" UId="355" />
+  <Token Text="NOT" UId="356" />
+  <Blank Num="1" UId="357" />
+  <Access Scope="LocalVariable" UId="358">
+    <Symbol UId="359">
+      <Component Name="bInStepAdvance" UId="360" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="361" />
+  <Token Text=";" UId="362" />
+  <NewLine Num="1" UId="363" />
+  <Blank Num="4" UId="364" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="365">
+    <Text UId="366">Only set this if we are ok and in the right step</Text>
+  </LineComment>
+  <NewLine Num="1" UId="367" />
+  <Blank Num="4" UId="368" />
+  <Access Scope="PredefinedVariable" UId="369">
+    <PredefinedVariable Name="ENO" UId="370" />
+  </Access>
+  <Token Text=":=" UId="371" />
+  <Blank Num="1" UId="372" />
+  <Access Scope="LiteralConstant" UId="373">
+    <Constant UId="374">
+      <ConstantType Informative="true" UId="375">Bool</ConstantType>
+      <ConstantValue UId="376">true</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="377" />
+  <NewLine Num="1" UId="378" />
+  <Token Text="END_IF" UId="379" />
+  <Token Text=";" UId="380" />
+  <NewLine Num="1" UId="381" />
+  <Token Text="IF" UId="382" />
+  <Blank Num="1" UId="383" />
+  <Token Text="(" UId="384" />
+  <Access Scope="LocalVariable" UId="385">
+    <Symbol UId="386">
+      <Component Name="bInit" UId="387" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="388" />
+  <Blank Num="1" UId="389" />
+  <Token Text="THEN" UId="390" />
+  <NewLine Num="1" UId="391" />
+  <Blank Num="4" UId="392" />
+  <Access Scope="LocalVariable" UId="393">
+    <Symbol UId="394">
+      <Component Name="iCurrentStep" UId="395" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="396" />
+  <Token Text=":=" UId="397" />
+  <Blank Num="1" UId="398" />
+  <Access Scope="LocalVariable" UId="399">
+    <Symbol UId="400">
+      <Component Name="iInitStep" UId="401" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="402" />
+  <NewLine Num="1" UId="403" />
+  <Blank Num="4" UId="404" />
+  <Access Scope="LocalVariable" UId="405">
+    <Symbol UId="406">
+      <Component Name="bInit" UId="407" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="408" />
+  <Access Scope="LiteralConstant" UId="409">
+    <Constant UId="410">
+      <ConstantType Informative="true" UId="411">Bool</ConstantType>
+      <ConstantValue UId="412">false</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="413" />
+  <Blank Num="2" UId="414" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="415">
+    <Text UId="416">Clear so that if it is unwired on the next call, it is not run.</Text>
+  </LineComment>
+  <NewLine Num="1" UId="417" />
+  <Blank Num="4" UId="418" />
+  <Access Scope="LocalVariable" UId="419">
+    <Symbol UId="420">
+      <Component Name="bAlreadyInThisStep" UId="421" />
+    </Symbol>
+  </Access>
+  <Token Text=":=" UId="422" />
+  <Access Scope="LiteralConstant" UId="423">
+    <Constant UId="424">
+      <ConstantType Informative="true" UId="425">Bool</ConstantType>
+      <ConstantValue UId="426">false</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Bool</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="427" />
+  <NewLine Num="1" UId="428" />
+  <Token Text="END_IF" UId="429" />
+  <Token Text=";" UId="430" />
+  <NewLine Num="2" UId="431" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="432">
+    <Text UId="433">Set output variables</Text>
+  </LineComment>
+  <NewLine Num="1" UId="434" />
+  <Access Scope="LocalVariable" UId="435">
+    <Symbol UId="436">
+      <Component Name="iOutCurrentStep" UId="437" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="438" />
+  <Token Text=":=" UId="439" />
+  <Blank Num="1" UId="440" />
+  <Access Scope="LocalVariable" UId="441">
+    <Symbol UId="442">
+      <Component Name="iCurrentStep" UId="443" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="444" />
+  <NewLine Num="1" UId="445" />
+  <Access Scope="LocalVariable" UId="446">
+    <Symbol UId="447">
+      <Component Name="tInStepDelay" UId="448" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="449" />
+  <Token Text=":=" UId="450" />
+  <Blank Num="1" UId="451" />
+  <Access Scope="TypedConstant" UId="452">
+    <Constant UId="453">
+      <ConstantValue UId="454">T#0MS</ConstantValue>
+      <StringAttribute Name="Format" Informative="true">Time</StringAttribute>
+      <StringAttribute Name="FormatFlags" Informative="true">TypeQualifier</StringAttribute>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="455" />
+  <NewLine Num="1" UId="456" />
+</StructuredText></NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Step sequence controller</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FB>
+</Document>

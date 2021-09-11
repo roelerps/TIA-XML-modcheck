@@ -1,0 +1,275 @@
+MODULE fb5()
+VAR
+
+loc : {start, nw1, nw2, nw3, nw4, nw5, nw6, nw7 ,nw8, nw9, nw10, nw11, nw12, nw13, nw14, nw15, nw16, nw17, nw18, nw19, nw20, nw21, nw22, end};
+
+Ib_PBStart : boolean;
+Ib_LvlContEmpty : boolean;
+Ib_LvlContFull : boolean;
+Ib_PBFillLiq1 : boolean;
+Ib_PBEmptyCont : boolean;
+Ib_PBFillLiq2 : boolean;
+Ib_PBStop : boolean;
+
+Ib_VlvDrnClosed : boolean;
+Ib_VlvDrnOpened : boolean;
+Ib_VlvLiq1Closed : boolean;
+Ib_VlvLiq1Opened : boolean;
+Ib_VlvLiq2Closed : boolean;
+Ib_VlvLiq2Opened : boolean;
+
+static_CurrentStep : signed word[16];
+static_NextStep : signed word[16];
+
+static_bVlvDrn_Open : boolean;
+static_bVlvLiq1_Open : boolean;
+static_bVlvLiq2_Open : boolean;
+
+
+ASSIGN
+
+init(loc) := start;
+
+init(Ib_PBStart) := FALSE;
+init(Ib_LvlContEmpty) := FALSE;
+init(Ib_LvlContFull) := FALSE;
+init(Ib_PBFillLiq1) := FALSE;
+init(Ib_PBEmptyCont) := FALSE;
+init(Ib_PBFillLiq2) := FALSE;
+init(Ib_PBStop) := FALSE;
+
+init(Ib_VlvDrnClosed) := FALSE;
+init(Ib_VlvDrnOpened) := FALSE;
+init(Ib_VlvLiq1Closed) := FALSE;
+init(Ib_VlvLiq1Opened) := FALSE;
+init(Ib_VlvLiq2Closed) := FALSE;
+init(Ib_VlvLiq2Opened) := FALSE;
+
+init(static_CurrentStep) := 0sd16_0;
+init(static_NextStep) := 0sd16_0;
+init(static_bVlvDrn_Open) := FALSE;
+init(static_bVlvLiq1_Open) := FALSE;
+init(static_bVlvLiq2_Open) := FALSE;
+
+
+next(loc) :=
+	case
+		(loc = start) : nw1;
+		(loc = nw1) : nw2;
+		(loc = nw2) : nw3;
+		(loc = nw3) : nw4;
+		(loc = nw4) : nw5;
+		(loc = nw5) : nw6;
+		(loc = nw6) : nw7;
+		(loc = nw7) : nw8;
+		(loc = nw8) : nw9;
+		(loc = nw9) : nw10;
+		(loc = nw10) : nw11;
+		(loc = nw11) : nw12;
+		(loc = nw12) : nw13;
+		(loc = nw13) : nw14;
+		(loc = nw14) : nw15;
+		(loc = nw15) : nw16;
+		(loc = nw16) : nw17;
+		(loc = nw17) : nw18;
+		(loc = nw18) : nw19;
+		(loc = nw19) : nw20;
+		(loc = nw20) : nw21;
+		(loc = nw21) : nw22;
+		(loc = nw22) : end;
+		--(loc=end):end2;
+		--(loc=end2):end2;
+		(loc = end) : start;
+	esac;
+	
+
+next(Ib_PBStart) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_PBStart;
+	esac;
+next(Ib_LvlContEmpty) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_LvlContEmpty;
+	esac;
+next(Ib_LvlContFull) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_LvlContFull;
+	esac;
+next(Ib_PBFillLiq1) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_PBFillLiq1;
+	esac;
+next(Ib_PBEmptyCont) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_PBEmptyCont;
+	esac;
+next(Ib_PBFillLiq2) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_PBFillLiq2;
+	esac;
+next(Ib_PBStop) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_PBStop;
+	esac;	
+	
+next(Ib_VlvDrnClosed) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_VlvDrnClosed;
+	esac;	
+next(Ib_VlvDrnOpened) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_VlvDrnOpened;
+	esac;	
+next(Ib_VlvLiq1Closed) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_VlvLiq1Closed;
+	esac;	
+next(Ib_VlvLiq1Opened) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_VlvLiq1Opened;
+	esac;	
+next(Ib_VlvLiq2Closed) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_VlvLiq2Closed;
+	esac;	
+next(Ib_VlvLiq2Opened) := 
+	case
+		(loc = end) : {FALSE, TRUE};
+		TRUE : Ib_VlvLiq2Opened;
+	esac;	
+	
+	
+	
+-- network 1-19
+next(static_NextStep) :=
+	case	
+		(loc = nw1) & (Ib_PBStart & (static_CurrentStep = 0sd16_0)): 0sd16_10;
+		(loc = nw3) & (Ib_LvlContEmpty & !Ib_LvlContFull & (static_CurrentStep = 0sd16_10)): 0sd16_20;
+		(loc = nw3) & (!(Ib_LvlContEmpty & !Ib_LvlContFull) & (static_CurrentStep = 0sd16_10)): 0sd16_11;
+		(loc = nw4) & (Ib_LvlContEmpty & !Ib_LvlContFull & (static_CurrentStep = 0sd16_11)): 0sd16_20;
+		(loc = nw6) & (Ib_PBFillLiq1 & (static_CurrentStep = 0sd16_20)): 0sd16_21;
+		(loc = nw7) & (Ib_LvlContFull & (static_CurrentStep = 0sd16_21)): 0sd16_30;
+		(loc = nw9) & (Ib_PBEmptyCont & (static_CurrentStep = 0sd16_30)): 0sd16_31;
+		(loc = nw10) & (Ib_LvlContEmpty & (static_CurrentStep = 0sd16_31)): 0sd16_40;
+		(loc = nw12) & (Ib_PBFillLiq2 & (static_CurrentStep = 0sd16_40)): 0sd16_41;
+		(loc = nw13) & (Ib_LvlContFull & (static_CurrentStep = 0sd16_41)): 0sd16_50;
+		(loc = nw15) & (Ib_PBEmptyCont & (static_CurrentStep = 0sd16_50)): 0sd16_51;
+		(loc = nw16) & (Ib_LvlContEmpty & (static_CurrentStep = 0sd16_51)): 0sd16_60;
+		(loc = nw18) & (Ib_PBStop & (static_CurrentStep = 0sd16_60)): 0sd16_0;
+		TRUE : static_NextStep;
+	esac;
+	
+	
+	
+-- network 20
+next(static_CurrentStep) :=
+	case
+		(loc = nw20) & !(static_NextStep = static_CurrentStep): static_NextStep;
+		TRUE: static_CurrentStep;
+	esac;
+	
+-- network 22	
+next(static_bVlvDrn_Open) :=
+	case	
+		(loc = nw22): ((static_CurrentStep = 0sd16_11) | (static_CurrentStep = 0sd16_31) | (static_CurrentStep = 0sd16_51)) & (Ib_VlvLiq1Closed & Ib_VlvLiq2Closed);
+		TRUE : static_bVlvDrn_Open;
+	esac;
+next(static_bVlvLiq1_Open) :=
+	case	
+		(loc = nw22): ((static_CurrentStep = 0sd16_21) & (Ib_VlvDrnClosed & Ib_VlvLiq2Closed));
+		TRUE : static_bVlvLiq1_Open;
+	esac;
+next(static_bVlvLiq2_Open) :=
+	case	
+		(loc = nw22): ((static_CurrentStep = 0sd16_41) & (Ib_VlvDrnClosed & Ib_VlvLiq1Closed));
+		TRUE : static_bVlvLiq2_Open;
+	esac;	
+
+
+
+
+
+MODULE main
+VAR
+Test_FB5 : fb5();
+
+ASSIGN
+
+
+
+-- Basic reachability
+SPEC AG AF (Test_FB5.loc = end)
+LTLSPEC G F (Test_FB5.loc = end)
+SPEC AF (Test_FB5.loc = end)
+LTLSPEC F (Test_FB5.loc = end)
+SPEC AG (Test_FB5.loc = end -> AX (Test_FB5.loc = start))
+LTLSPEC G (Test_FB5.loc = end -> X (Test_FB5.loc = start))
+
+
+-- Basic liveness
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_0)
+LTLSPEC F (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_0)
+--SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_10)
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_11)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_10 & !(Test_FB5.Ib_LvlContEmpty & !Test_FB5.Ib_LvlContFull)) -> X (Test_FB5.static_CurrentStep = 0sd16_11))
+
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_20)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_11 & Test_FB5.Ib_LvlContEmpty & !Test_FB5.Ib_LvlContFull) -> X (Test_FB5.static_CurrentStep = 0sd16_20))
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_21)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_20 & Test_FB5.Ib_PBFillLiq1) -> X (Test_FB5.static_CurrentStep = 0sd16_21))
+
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_30)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_21 & Test_FB5.Ib_LvlContFull) -> X (Test_FB5.static_CurrentStep = 0sd16_30))
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_31)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_30 & Test_FB5.Ib_PBEmptyCont) -> X (Test_FB5.static_CurrentStep = 0sd16_31))
+
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_40)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_31 & Test_FB5.Ib_LvlContEmpty) -> X (Test_FB5.static_CurrentStep = 0sd16_40))
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_41)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_40 & Test_FB5.Ib_PBFillLiq2) -> X (Test_FB5.static_CurrentStep = 0sd16_41))
+
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_50)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_41 & Test_FB5.Ib_LvlContFull) -> X (Test_FB5.static_CurrentStep = 0sd16_50))
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_51)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_50 & Test_FB5.Ib_PBEmptyCont) -> X (Test_FB5.static_CurrentStep = 0sd16_51))
+
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_60)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_51 & Test_FB5.Ib_LvlContEmpty) -> X (Test_FB5.static_CurrentStep = 0sd16_50))
+
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_bVlvDrn_Open)
+LTLSPEC F ((Test_FB5.loc = end & (Test_FB5.static_CurrentStep = 0sd16_11 | Test_FB5.static_CurrentStep = 0sd16_31 | Test_FB5.static_CurrentStep = 0sd16_51) & (Test_FB5.Ib_VlvLiq2Closed & Test_FB5.Ib_VlvLiq1Closed)) -> Test_FB5.static_bVlvDrn_Open)
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_bVlvLiq1_Open)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_21 & (Test_FB5.Ib_VlvDrnClosed & Test_FB5.Ib_VlvLiq2Closed)) -> Test_FB5.static_bVlvLiq1_Open)
+SPEC EF (Test_FB5.loc = end & Test_FB5.static_bVlvLiq2_Open)
+LTLSPEC F ((Test_FB5.loc = end & Test_FB5.static_CurrentStep = 0sd16_41 & (Test_FB5.Ib_VlvDrnClosed & Test_FB5.Ib_VlvLiq1Closed)) -> Test_FB5.static_bVlvLiq2_Open)
+
+
+-- Functionality
+SPEC AG ((Test_FB5.loc = end) -> (!(Test_FB5.static_bVlvLiq1_Open & Test_FB5.static_bVlvLiq2_Open)))
+LTLSPEC G ((Test_FB5.loc = end) -> (!(Test_FB5.static_bVlvLiq1_Open & Test_FB5.static_bVlvLiq2_Open)))
+SPEC AG (((Test_FB5.loc = end) & Test_FB5.static_bVlvDrn_Open) -> (!(Test_FB5.static_bVlvLiq1_Open | Test_FB5.static_bVlvLiq2_Open)))
+LTLSPEC G (((Test_FB5.loc = end) & Test_FB5.static_bVlvDrn_Open) -> (!(Test_FB5.static_bVlvLiq1_Open | Test_FB5.static_bVlvLiq2_Open)))
+SPEC AG (((Test_FB5.loc = end) & Test_FB5.static_bVlvLiq1_Open) -> (!(Test_FB5.static_bVlvDrn_Open | Test_FB5.static_bVlvLiq2_Open)))
+LTLSPEC G (((Test_FB5.loc = end) & Test_FB5.static_bVlvLiq1_Open) -> (!(Test_FB5.static_bVlvDrn_Open | Test_FB5.static_bVlvLiq2_Open)))
+SPEC AG (((Test_FB5.loc = end) & Test_FB5.static_bVlvLiq2_Open) -> (!(Test_FB5.static_bVlvDrn_Open | Test_FB5.static_bVlvLiq1_Open)))
+LTLSPEC G (((Test_FB5.loc = end) & Test_FB5.static_bVlvLiq2_Open) -> (!(Test_FB5.static_bVlvDrn_Open | Test_FB5.static_bVlvLiq1_Open)))
+
+SPEC AG ((Test_FB5.loc = end & Test_FB5.static_bVlvDrn_Open) -> (Test_FB5.Ib_VlvLiq1Closed & Test_FB5.Ib_VlvLiq2Closed))
+LTLSPEC G ((Test_FB5.loc = end & Test_FB5.static_bVlvDrn_Open) -> (Test_FB5.Ib_VlvLiq1Closed & Test_FB5.Ib_VlvLiq2Closed))
+SPEC AG ((Test_FB5.loc = end & Test_FB5.static_bVlvLiq1_Open) -> (Test_FB5.Ib_VlvDrnClosed & Test_FB5.Ib_VlvLiq2Closed))
+LTLSPEC G ((Test_FB5.loc = end & Test_FB5.static_bVlvLiq1_Open) -> (Test_FB5.Ib_VlvDrnClosed & Test_FB5.Ib_VlvLiq2Closed))
+SPEC AG ((Test_FB5.loc = end & Test_FB5.static_bVlvLiq2_Open) -> (Test_FB5.Ib_VlvDrnClosed & Test_FB5.Ib_VlvLiq1Closed))
+LTLSPEC G ((Test_FB5.loc = end & Test_FB5.static_bVlvLiq2_Open) -> (Test_FB5.Ib_VlvDrnClosed & Test_FB5.Ib_VlvLiq1Closed))
+

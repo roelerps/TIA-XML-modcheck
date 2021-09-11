@@ -1,0 +1,256 @@
+MODULE fb330(bInError01, bInError02, bInError03, bInError04, bInError05)
+VAR
+
+loc : {start, nw1, nw2, nw3, nw4, nw5, nw6, nw7 ,nw8, end};
+
+output_bOutErrorExists : boolean;
+output_iOutScrollingErrorNumber : signed word[16];
+
+static_abErrors : array 0..5 of boolean;
+static_iNextScrollNum : signed word[16];
+static_iErrorsScrollNum : signed word[16];
+static_bScrolling : boolean;
+static_bTON_ErrorDelay : boolean;
+
+temp_bErrorExists : boolean;
+
+const_ciNoErrors : signed word[16];
+const_ciIndexLow : signed word[16];
+const_ciIndexHigh : signed word[16];
+
+timer_TON_ErrorDelay : {0,1,2};
+
+
+ASSIGN
+
+init(loc) := start;
+
+init(output_bOutErrorExists) := FALSE;
+init(output_iOutScrollingErrorNumber) := 0sd16_0;
+
+init(static_iNextScrollNum) := 0sd16_0;
+init(static_iErrorsScrollNum) := 0sd16_0;
+init(static_bScrolling) := FALSE;
+init(static_bTON_ErrorDelay) := FALSE;
+
+init(temp_bErrorExists) := FALSE;
+
+init(const_ciNoErrors) := 0sd16_0;
+init(const_ciIndexLow) := 0sd16_1;
+init(const_ciIndexHigh) := 0sd16_5;
+
+init(timer_TON_ErrorDelay) := 0;
+
+next(const_ciNoErrors) := 0sd16_0;
+next(const_ciIndexLow) := 0sd16_1;
+next(const_ciIndexHigh) := 0sd16_5;
+
+next(loc) :=
+	case
+		(loc = start) : nw1;
+		(loc = nw1) : nw2;
+		(loc = nw2) : nw3;
+		(loc = nw3) : nw4;
+		(loc = nw4) : nw5;
+		(loc = nw5) : nw6;
+		(loc = nw6) : nw7;
+		(loc = nw7) : nw8;
+		(loc = nw8) : end;
+		(loc = end) : start;
+	esac;
+	
+-- network 1
+next(static_iErrorsScrollNum) :=
+	case	
+		(loc = nw1) & ((static_iErrorsScrollNum < const_ciNoErrors) | (static_iErrorsScrollNum > const_ciIndexHigh)): const_ciNoErrors;
+		(loc = nw4) & !temp_bErrorExists : const_ciNoErrors;
+		(loc = nw6) & (static_bScrolling & static_abErrors[1] & static_iNextScrollNum = 0sd16_1) : 0sd16_1;
+		(loc = nw6) & (static_bScrolling & static_abErrors[2] & static_iNextScrollNum = 0sd16_2) : 0sd16_2;
+		(loc = nw6) & (static_bScrolling & static_abErrors[3] & static_iNextScrollNum = 0sd16_3) : 0sd16_3;
+		(loc = nw6) & (static_bScrolling & static_abErrors[4] & static_iNextScrollNum = 0sd16_4) : 0sd16_4;
+		(loc = nw6) & (static_bScrolling & static_abErrors[5] & static_iNextScrollNum = 0sd16_5) : 0sd16_5;
+		TRUE : static_iErrorsScrollNum;
+	esac;
+next(static_iNextScrollNum) :=
+	case	
+		(loc = nw1) & ((static_iNextScrollNum < const_ciIndexLow) | (static_iNextScrollNum > const_ciIndexHigh)): const_ciIndexLow;
+		(loc = nw4) & static_bTON_ErrorDelay : static_iErrorsScrollNum;
+		(loc = nw5) & static_bScrolling : static_iNextScrollNum + 0sd16_1;
+		(loc = nw5) & ((static_iNextScrollNum > const_ciIndexHigh) | (static_iNextScrollNum < const_ciIndexLow)) &static_bScrolling : const_ciIndexLow;
+		TRUE : static_iNextScrollNum;
+	esac;
+	
+-- network 2
+next(static_abErrors[1]) :=
+	case
+		(loc = nw2) : bInError01;
+		TRUE : static_abErrors[1];
+	esac;
+	
+next(static_abErrors[2]) :=
+	case
+		(loc = nw2) : bInError02;
+		TRUE : static_abErrors[2];
+	esac;	
+	
+next(static_abErrors[3]) :=
+	case
+		(loc = nw2) : bInError03;
+		TRUE : static_abErrors[3];
+	esac;	
+	
+next(static_abErrors[4]) :=
+	case
+		(loc = nw2) : bInError04;
+		TRUE : static_abErrors[4];
+	esac;	
+	
+next(static_abErrors[5]) :=
+	case
+		(loc = nw2) : bInError05;
+		TRUE : static_abErrors[5];
+	esac;	
+	
+next(temp_bErrorExists) :=
+	case	
+		(loc = nw2) : bInError01 | bInError02 | bInError03 | bInError04 | bInError05;
+		TRUE : temp_bErrorExists;
+	esac;	
+	
+-- network 3
+next(timer_TON_ErrorDelay) :=
+	case
+		(loc = nw3) & !(temp_bErrorExists & !static_bTON_ErrorDelay) : 0;
+		(loc = nw3) & (temp_bErrorExists & !static_bTON_ErrorDelay) & (timer_TON_ErrorDelay < 2) : timer_TON_ErrorDelay + 1;
+		TRUE : timer_TON_ErrorDelay;
+	esac;	
+
+next(static_bTON_ErrorDelay) :=
+	case
+		(loc = nw3) & (timer_TON_ErrorDelay < 2) : FALSE;
+		(loc = nw3) & (timer_TON_ErrorDelay >= 2) : TRUE;
+		TRUE : static_bTON_ErrorDelay;
+	esac;	
+	
+-- network 4
+next(static_bScrolling) :=
+	case
+		(loc = nw4) & ( static_bTON_ErrorDelay | ( temp_bErrorExists & ( static_iErrorsScrollNum = const_ciNoErrors))) : TRUE;
+		(loc = nw4) & ( !temp_bErrorExists) : FALSE;
+		(loc = nw6) & (static_bScrolling & static_abErrors[1] & static_iNextScrollNum = 0sd16_1) : FALSE;
+		(loc = nw6) & (static_bScrolling & static_abErrors[2] & static_iNextScrollNum = 0sd16_2) : FALSE;
+		(loc = nw6) & (static_bScrolling & static_abErrors[3] & static_iNextScrollNum = 0sd16_3) : FALSE;
+		(loc = nw6) & (static_bScrolling & static_abErrors[4] & static_iNextScrollNum = 0sd16_4) : FALSE;
+		(loc = nw6) & (static_bScrolling & static_abErrors[5] & static_iNextScrollNum = 0sd16_5) : FALSE;
+		TRUE : static_bScrolling;
+	esac;
+
+-- network 7
+next(output_bOutErrorExists) :=
+	case
+		(loc = nw7) : temp_bErrorExists;
+		TRUE : output_bOutErrorExists;
+	esac;
+
+next(output_iOutScrollingErrorNumber) :=
+	case
+		(loc = nw7) : static_iErrorsScrollNum;
+		TRUE : output_iOutScrollingErrorNumber;
+	esac;	
+
+
+
+
+MODULE main
+VAR
+bInError01 : boolean;
+bInError02 : boolean;
+bInError03 : boolean;
+bInError04 : boolean;
+bInError05 : boolean;
+Test_FB330 : fb330(bInError01, bInError02, bInError03, bInError04, bInError05);
+
+ASSIGN
+init(bInError01) := FALSE;
+init(bInError02) := FALSE;
+init(bInError03) := FALSE;
+init(bInError04) := FALSE;
+init(bInError05) := FALSE;
+
+
+next(bInError01) := 
+	case
+		(Test_FB330.loc = end) : {FALSE, TRUE};
+		TRUE : bInError01;
+	esac;
+	
+next(bInError02) := 
+	case
+		(Test_FB330.loc = end) : {FALSE, TRUE};
+		TRUE : bInError02;
+	esac;
+
+next(bInError03) := 
+	case
+		(Test_FB330.loc = end) : {FALSE, TRUE};
+		TRUE : bInError03;
+	esac;
+
+next(bInError04) := 
+	case
+		(Test_FB330.loc = end) : {FALSE, TRUE};
+		TRUE : bInError04;
+	esac;
+
+next(bInError05) := 
+	case
+		(Test_FB330.loc = end) : {FALSE, TRUE};
+		TRUE : bInError05;
+	esac;
+
+
+-- Basic reachability
+SPEC AG AF (Test_FB330.loc = end)
+LTLSPEC G F (Test_FB330.loc = end)
+SPEC AF (Test_FB330.loc = end)
+LTLSPEC F (Test_FB330.loc = end)
+SPEC AG (Test_FB330.loc = end -> AX (Test_FB330.loc = start))
+LTLSPEC G (Test_FB330.loc = end -> X (Test_FB330.loc = start))
+
+-- Basic liveness
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_bOutErrorExists)
+LTLSPEC F ((Test_FB330.loc = end & !(Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)) ->  (Test_FB330.output_bOutErrorExists))
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)
+LTLSPEC F (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_1)
+LTLSPEC F ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_1))
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_2)
+LTLSPEC F ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_2))
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_3)
+LTLSPEC F ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_3))
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_4)
+LTLSPEC F ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_4))
+SPEC EF (Test_FB330.loc = end & Test_FB330.output_iOutScrollingErrorNumber = 0sd16_5)
+LTLSPEC F ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_5))
+SPEC EF (Test_FB330.loc = end & !Test_FB330.bInError01)
+LTLSPEC F (Test_FB330.loc = end & !Test_FB330.bInError01)
+
+-- Test
+SPEC EF (Test_FB330.loc = end & !Test_FB330.bInError01 & !Test_FB330.bInError02 & !Test_FB330.bInError03 & !Test_FB330.bInError04 & !Test_FB330.bInError05)
+LTLSPEC F (Test_FB330.loc = end & !Test_FB330.bInError01 & !Test_FB330.bInError02 & !Test_FB330.bInError03 & !Test_FB330.bInError04 & !Test_FB330.bInError05)
+SPEC AG AF ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (!(Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)))
+LTLSPEC G F ((Test_FB330.loc = end & Test_FB330.output_bOutErrorExists) -> (!(Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)))
+SPEC AG ((Test_FB330.loc = end & !Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0))
+LTLSPEC G ((Test_FB330.loc = end & !Test_FB330.output_bOutErrorExists) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0))
+
+-- Functionality
+SPEC AG AF ((Test_FB330.loc = end & Test_FB330.bInError01 & !Test_FB330.bInError02 & !Test_FB330.bInError03 & !Test_FB330.bInError04 & !Test_FB330.bInError05 & !(Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_1))
+LTLSPEC G F ((Test_FB330.loc = end & Test_FB330.bInError01 & !Test_FB330.bInError02 & !Test_FB330.bInError03 & !Test_FB330.bInError04 & !Test_FB330.bInError05 & !(Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0)) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_1))
+SPEC AG ((Test_FB330.loc = end & !Test_FB330.bInError01 & !Test_FB330.bInError02 & !Test_FB330.bInError03 & !Test_FB330.bInError04 & !Test_FB330.bInError05) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0))
+LTLSPEC G ((Test_FB330.loc = end & !Test_FB330.bInError01 & !Test_FB330.bInError02 & !Test_FB330.bInError03 & !Test_FB330.bInError04 & !Test_FB330.bInError05) -> (Test_FB330.output_iOutScrollingErrorNumber = 0sd16_0))
+
+-- Test compositional Model Checking (FB110)
+SPEC AG ((Test_FB330.loc = end & Test_FB330.bInError01) -> (Test_FB330.output_bOutErrorExists))
+LTLSPEC G ((Test_FB330.loc = end & Test_FB330.bInError01) -> (Test_FB330.output_bOutErrorExists))
+
+SPEC AG ((Test_FB330.loc = end & (Test_FB330.bInError03 | Test_FB330.bInError04)) -> (Test_FB330.output_bOutErrorExists))
